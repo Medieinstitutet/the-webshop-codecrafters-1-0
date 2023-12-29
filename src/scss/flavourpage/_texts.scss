@@ -1,0 +1,27 @@
+@use "/src/scss/variables" as v;
+
+.pageTitle {
+  margin-top: 0%;
+  padding-top: 10%;
+  font-family: "Arial";
+  font-weight: 400;
+  color: v.$secondary-color;
+  letter-spacing: 0.1rem;
+}
+
+.flavourTitle {
+  margin: 0;
+  font-family: "Arial";
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: v.$secondary-color;
+  letter-spacing: 0.1rem;
+}
+
+.flavourIngredients {
+  margin: 0;
+  font-family: "Arial";
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: v.$secondary-color;
+}

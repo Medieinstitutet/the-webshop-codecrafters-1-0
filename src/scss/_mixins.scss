@@ -1,9 +1,6 @@
-@use 'variables' as v;
+@use "variables" as v;
 
-
-
-@mixin devices ($breakpoint) {
-
+@mixin devices($breakpoint) {
   @if $breakpoint ==tablet {
     @media (min-width: 768px) {
       @content;
@@ -15,4 +12,12 @@
       @content;
     }
   }
+}
+
+@mixin flexit($direction, $position, $align, $negativespace) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $position;
+  align-items: $align;
+  gap: $negativespace;
 }

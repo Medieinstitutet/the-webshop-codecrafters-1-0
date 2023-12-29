@@ -1,0 +1,36 @@
+@use "/src/scss/variables" as v;
+@use "/src/scss/mixins";
+
+body,
+html {
+  margin: 0px;
+  height: 100%;
+  font-size: 12pt;
+  scroll-behavior: smooth;
+}
+
+#flavourPage {
+  height: 100%;
+  width: 100%;
+  background-color: v.$primary-backgroundcolor;
+}
+
+.container--flavourList {
+  @include mixins.flexit(column, center, center, 0);
+  .flavourList {
+    list-style: none;
+    padding-left: 0%;
+    height: 100%;
+    width: 90%;
+    @include mixins.flexit(column, "", center, 30px);
+    .specificFlavour {
+      width: 90%;
+      height: 50px;
+      @include mixins.flexit(column, center, center, 1px);
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use "/src/scss/variables" as v;
+
+#listItem__woody,
+#listItem__peaty {
+  background-color: v.$quaternary-color;
+}
+
+#listItem__winey,
+#listItem__feinty {
+  background-color: v.$quinary-color;
+}
+
+#listItem__cereal,
+#listItem__floral {
+  background-color: v.$senary-color;
+}
+
+#listItem__fruity,
+#listItem__surphury {
+  background-color: v.$septenary-color;
+}
