@@ -1,8 +1,17 @@
 .introductionImage {
-  height: 470px;
-  position: relative;
+  width: 84%;
+  margin-top: 25px;
 }
 
 .introductionImage img {
-  max-height: 100%;
+  max-width: 100%;
+}
+
+.subscriptionImage {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.subscriptionImage img {
+  max-width: 100%;
 }

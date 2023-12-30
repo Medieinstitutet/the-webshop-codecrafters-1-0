@@ -17,12 +17,10 @@ html {
 .container--introduction {
   display: flex;
   flex-direction: column;
-  justify-content: right;
   align-items: end;
-  .introduction {
+  .introduction--content {
     display: flex;
     flex-direction: column;
-    justify-content: right;
     align-items: end;
   }
 }

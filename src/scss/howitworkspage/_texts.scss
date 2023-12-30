@@ -1,8 +1,10 @@
 @use "/src/scss/variables" as v;
 
-#introductionTitle {
+.pageTitle {
   margin: 0%;
+  margin-bottom: 20px;
   margin-right: 15px;
+  margin-left: 15px;
   padding-top: 50px;
   font-family: "Arial";
   font-size: 0.9rem;
@@ -10,19 +12,38 @@
   color: v.$secondary-color;
   letter-spacing: 0.07rem;
   line-height: 1.1rem;
+}
+
+#introductionTitle {
   text-align: right;
   width: 80%;
 }
 
-.text__small {
-  margin-bottom: 20px;
-  margin-top: 20px;
+.smallText__thin {
+  margin-bottom: 0;
+  margin-top: 0;
   margin-right: 15px;
+  margin-left: 15px;
   font-family: "Arial";
   font-size: 0.75rem;
   font-weight: 400;
   color: v.$secondary-color;
   line-height: 1.1rem;
+}
+
+#introductionText {
   text-align: right;
   width: 80%;
+}
+
+.smallText__bold {
+  margin-bottom: 0;
+  margin-top: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-family: "Arial";
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: v.$secondary-color;
+  line-height: 1.1rem;
 }
