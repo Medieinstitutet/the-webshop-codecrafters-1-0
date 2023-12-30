@@ -1,0 +1,28 @@
+@use "/src/scss/variables" as v;
+
+body,
+html {
+  margin: 0px;
+  height: 100%;
+  font-size: 12pt;
+  scroll-behavior: smooth;
+}
+
+#howItWorksPage {
+  height: 100%;
+  width: 100%;
+  background-color: v.$secondary-backgroundcolor;
+}
+
+.container--introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: end;
+  .introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: end;
+  }
+}
