@@ -1,11 +1,8 @@
 @use "/src/scss/variables" as v;
+@use "/src/scss/mixins";
 
 .pageTitle {
-  margin: 0%;
-  margin-bottom: 20px;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding-top: 50px;
+  margin: 50px 15px 20px 15px;
   font-family: "Arial";
   font-size: 0.9rem;
   font-weight: 500;
@@ -14,16 +11,14 @@
   line-height: 1.1rem;
 }
 
-#introductionTitle {
+#introductionTitle,
+#introductionText {
   text-align: right;
   width: 80%;
 }
 
 .smallText__thin {
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin: 0px 15px 0px 15px;
   font-family: "Arial";
   font-size: 0.75rem;
   font-weight: 400;
@@ -31,19 +26,61 @@
   line-height: 1.1rem;
 }
 
-#introductionText {
-  text-align: right;
-  width: 80%;
-}
-
 .smallText__bold {
-  margin-bottom: 0;
-  margin-top: 20px;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin: 20px 15px 0px 15px;
   font-family: "Arial";
   font-size: 0.75rem;
   font-weight: 600;
   color: v.$secondary-color;
   line-height: 1.1rem;
+}
+
+#supriseElementTitle,
+#supriseElementText {
+  text-align: right;
+  width: 80%;
+}
+
+.howItWorksList {
+  padding-left: 15px;
+  padding-bottom: 45px;
+}
+
+#howItWorksPage {
+  @include mixins.devices(tablet) {
+    .pageTitle {
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+
+    #introductionTitle {
+      font-size: 1.1rem;
+      width: 40%;
+      text-align: left;
+    }
+
+    #introductionText {
+      font-size: 0.96rem;
+      width: 40%;
+      text-align: left;
+    }
+
+    .smallText__thin,
+    .smallText__bold {
+      font-size: 0.9rem;
+    }
+
+    #supriseElementTitle,
+    #supriseElementText,
+    .container--selectFlavor,
+    .container--howIt {
+      width: 66%;
+    }
+
+    .subscription--content {
+      position: absolute;
+      width: 46%;
+      transform: translateY(-105%);
+    }
+  }
 }

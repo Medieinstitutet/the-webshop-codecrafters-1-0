@@ -1,3 +1,5 @@
+@use "/src/scss/mixins";
+
 .introductionImage {
   width: 84%;
   margin-top: 25px;
@@ -14,4 +16,23 @@
 
 .subscriptionImage img {
   max-width: 100%;
+}
+
+#howItWorksPage {
+  @include mixins.devices(tablet) {
+    .introductionImage {
+      width: 50%;
+      margin-top: 30px;
+    }
+
+    .subscriptionImage {
+      padding-top: 35px;
+      height: 340px;
+      overflow: hidden;
+    }
+
+    .subscriptionImage img {
+      transform: translatey(-20%);
+    }
+  }
 }
