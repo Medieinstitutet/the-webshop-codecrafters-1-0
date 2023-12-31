@@ -36,3 +36,16 @@
     }
   }
 }
+
+#howItWorksPage {
+  @include mixins.devices(desktop) {
+    .introductionImage {
+      width: 460px;
+      margin-top: 30px;
+    }
+
+    .subscriptionImage img {
+      transform: translatey(-35%);
+    }
+  }
+}

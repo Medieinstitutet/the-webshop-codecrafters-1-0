@@ -38,6 +38,18 @@ html {
     .introduction--content {
       position: absolute;
       align-items: start;
+      left: 0px;
     }
   }
 }
+
+// #howItWorksPage {
+//   @include mixins.devices(desktop) {
+//     .introduction--content {
+//       display: inline;
+//       position: initial;
+//       align-items: start;
+//       left: 0px;
+//     }
+//   }
+// }
