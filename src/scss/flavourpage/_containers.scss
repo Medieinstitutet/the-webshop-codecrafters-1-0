@@ -17,6 +17,7 @@ html {
 
 .container--flavourList {
   @include mixins.flexit(column, center, center, 0);
+
   .flavourList {
     list-style: none;
     padding-left: 0%;
@@ -24,18 +25,7 @@ html {
     height: 100%;
     width: 90%;
     @include mixins.flexit(column, center, center, 30px);
-    @include mixins.devices(tablet) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      justify-items: center;
-    }
-    @include mixins.devices(desktop) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      justify-items: center;
-    }
+
     .specificFlavour {
       width: 90%;
       height: 50px;
@@ -44,6 +34,26 @@ html {
         cursor: pointer;
         opacity: 0.8;
       }
+    }
+  }
+}
+
+#flavourPage {
+  @include mixins.devices(tablet) {
+    .flavourList {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      justify-items: center;
+    }
+  }
+
+  @include mixins.devices(desktop) {
+    .flavourList {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      justify-items: center;
     }
   }
 }
