@@ -5,7 +5,7 @@ export const oneProduct = (oneProduct?: Product[], productPageContainer?: HTMLEl
   
 
 
-    if (oneProduct && oneProduct.length > 0 && productPageContainer ) {
+if(oneProduct && oneProduct.length > 0 && productPageContainer ) {
 
 /* selected product */
 const selectedProduct = document.createElement('section')
@@ -30,11 +30,9 @@ imgAndDescription___description.classList.add('imgAndDescription___description')
 
 
 /* button */
-
-
 const imgAndDescription___button = document.createElement('button')
 imgAndDescription___button.classList.add('imgAndDescription___button')
-imgAndDescription___button.innerHTML = `Add   <i class="fa fa-shopping-basket"></i> ` ;
+imgAndDescription___button.innerHTML = `Add  <i class="fa fa-shopping-basket"></i> ` ;
 
 
 /*  titel */

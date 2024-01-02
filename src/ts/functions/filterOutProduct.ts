@@ -8,7 +8,7 @@ export const filterOutProduct = async (id:string) => {
     if(products && id){
     const oneProduct = products.filter(item => item._id === id) 
     const twoProduct = products.filter(item => item._id !== id) 
-    if(oneProduct){
+    if(oneProduct && twoProduct){
 productPage(oneProduct<Product>, twoProduct<Product[]>)
     }
     }
