@@ -3,12 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sell it or buy it?</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <button id="openButton">varor</button>
+      <section id="basketPage">
+        <section id="container--basket">
+          <h3 class="pageTitle">Articles</h3>
+          <section class="basketArticles">
+            <section class="basket--oneProduct">
+              <section class="oneProduct--xmark">X</section>
+              <section class="basket--image"></section>
+              <section class="openProduct--text">
+                <p class="basket--productTitle">Test</p>
+                <section class="countProducts">
+                  <span class="productQuantity--text">Antal:</span>
+                  <span id="productQuantity--number">1</span>
+                </section>
+                <section class="buttonAndPrice">
+                  <section class="addOrRemoveButtons">
+                    <button class="minusButton">-</button>
+                    <button class="plusButton">+</button>
+                  </section>
+                  <p class="onePrductPrice">1000 SEK</p>
+                </section>
+              </section>
+            </section>
+          </section>
+          <section id="basketTotalSum">
+            <span class="totalText">TOTALT</span>
+            <span class="totalSumma">1000 SEK</span>
+          </section>
+          <section class="closeOrCheckoutButtons">
+            <button id="closeButton">close</button>
+            <button id="checkoutButton">checkout</button>
+          </section>
+        </section>
+      </section>
+    </div>
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>
