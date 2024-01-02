@@ -1,0 +1,114 @@
+@use 'mixins';
+@use "variables" as v;
+
+.productPageContainer {
+
+height: 100%;
+width: 100%;
+
+display: flex;
+flex-direction: column;
+
+.selectedProduct {
+
+    margin-top: 5vh;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    &___titel {
+        margin-bottom: 5vh;
+    }
+}
+
+.imgAndDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    width: 98%;
+    max-width: 1500px;
+    padding: 1%;
+    overflow: hidden;
+
+    @include mixins.devices(tablet) {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    &___description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin-top: 0;
+
+        @include mixins.devices(tablet) {
+            width: 50%;
+        }
+
+        &___p {
+            font-size: clamp(15px, 2vw, 20px);
+            line-height: 120%;
+            width: 90%;
+
+        }
+    }
+
+    &___button {
+        align-self: center;
+        height: 4vh;
+        min-height: 30px;
+        width: 100%;
+        max-width: 170px;
+        background-color:v.$primary-color;
+        margin-top: 2vh;
+        border-radius: 15px;
+        font-size: clamp(12px, 2vw, 17px);
+        &:hover{
+
+            background-color:v.$tertiary-color;
+
+
+        }
+    }
+
+    i {
+        margin-left: 10px;
+    }
+
+    &___imgContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mixins.devices(tablet) {
+            width: 60%;
+        }
+
+        &___img {
+            object-fit: cover;
+            width: 98%;
+            max-width: 500px;
+            aspect-ratio: 1/1;
+            border: 2px solid v.$primary-color;
+            border-radius: 10px;
+
+            @include mixins.devices(tablet) {
+                max-height: 400px;
+            }
+        }
+    }
+
+
+
+
+
+} }
+

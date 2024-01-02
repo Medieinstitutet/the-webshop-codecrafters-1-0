@@ -1,0 +1,33 @@
+[ {
+    "_id": "658c0822982493ac38e5094f",
+    "titel": "Basic",
+    "image": "https://images.unsplash.com/photo-1615887023544-3a566f29d822",
+    "price": 1200,
+    "description": [
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas "
+    ]
+},
+{
+    "_id": "658c09a4982493ac38e50950",
+    "titel": "Premium",
+    "image": "https://images.unsplash.com/photo-1615887023544-3a566f29d822",
+    "price": 1500,
+    "description": [
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas "
+    ]
+},
+{
+    "_id": "6590074fa26f7240140b969c",
+    "titel": "Collector's",
+    "image": "https://images.unsplash.com/photo-1615887023544-3a566f29d822",
+    "price": 2000,
+    "description": [
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas ",
+        "Et facere incidunt sit architecto molestias est incidunt dolor. Ut nesciunt quasi eos omnis sequi quo natus\n necessitatibus. Aut voluptas "
+    ]
+}]
