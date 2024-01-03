@@ -12,9 +12,13 @@ export const getProducts = async () => {
       });
     }
   } catch {
-    productsfromjson.forEach((item) => {
-      Array.push(item);
-    });
+    if (productsfromjson) {
+      productsfromjson.forEach((item) => {
+        Array.push(item);
+      });
+    } else {
+      console.error("error");
+    }
   }
   return Array;
 };
