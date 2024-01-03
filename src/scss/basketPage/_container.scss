@@ -15,27 +15,36 @@
   align-items: center;
 }
 
-.basketArticles {
+.container--basketArticles {
   position: relative;
   width: 90%;
-  height: 100px;
-  background-color: white;
+  max-height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
 .basket--oneProduct {
   width: 100%;
+  height: 90px;
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-left: 10px;
+  background-color: white;
 }
 
 .basket--image {
   height: 70px;
   width: 70px;
   background-color: black;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.img {
+  width: 70px;
+  transform: translateY(-20%);
 }
 
 .openProduct--text {
@@ -72,7 +81,7 @@
   width: 90%;
   height: 50px;
   background-color: white;
-  margin: 30px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +89,7 @@
 
 .totalText {
   margin-left: 10px;
+  font-weight: 600;
 }
 
 .totalSumma {
@@ -92,8 +102,10 @@
   align-items: center;
 }
 
-.onePrductPrice {
-  margin: 0%;
+.oneProductPrice {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 10px;
 }
 
 #checkoutButton {
@@ -113,4 +125,9 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.basket--productTitle {
+  font-weight: 600;
+  font-size: 1.07rem;
 }
