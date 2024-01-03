@@ -1,11 +1,11 @@
 import { Product } from "../models/product"
 
 
-export const oneProduct = (oneProduct?: Product[], productPageContainer?: HTMLElement) => {
+export const oneProduct = (oneProduct?: Product[], productPageContainer?: HTMLElement, text?: string) => {
   
 
 
-    if (oneProduct && oneProduct.length > 0 && productPageContainer ) {
+    if (oneProduct && oneProduct.length > 0 && productPageContainer && text ) {
 
 /* selected product */
 const selectedProduct = document.createElement('section')
@@ -28,13 +28,18 @@ imgAndDescription___imgContainer___img.classList.add('imgAndDescription___imgCon
 const imgAndDescription___description = document.createElement('p')
 imgAndDescription___description.classList.add('imgAndDescription___description')
 
-
+/*  price */
+const imgAndDescription___price = document.createElement('p')
+imgAndDescription___price.classList.add('imgAndDescription___price')
+imgAndDescription___price.innerHTML = oneProduct[0].price.toString();
+imgAndDescription___price.innerHTML +='/st'
 /* button */
 
 
 const imgAndDescription___button = document.createElement('button')
 imgAndDescription___button.classList.add('imgAndDescription___button')
-imgAndDescription___button.innerHTML = `Add   <i class="fa fa-shopping-basket"></i> ` ;
+imgAndDescription___button.innerHTML = text ;
+
 
 
 /*  titel */
@@ -50,7 +55,7 @@ selectedProduct___titel.innerText = oneProduct[0].titel;
 productPageContainer.appendChild(selectedProduct)
 
 
-/* selected product titel */
+/* selected product titel and price*/
 selectedProduct.appendChild(selectedProduct___titel)
 
 
@@ -71,7 +76,11 @@ for(let i = 0; i < oneProduct[0].description.length; i++ ){
     imgAndDescription___description.appendChild(text)
     }
 
+
+imgAndDescription___description.appendChild(imgAndDescription___price)
 imgAndDescription___description.appendChild(imgAndDescription___button)
+
+
 }
 }
 

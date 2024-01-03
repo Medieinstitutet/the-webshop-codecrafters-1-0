@@ -4,16 +4,13 @@ import { restOfProducts } from "./restOfProducts"
 
 
 
-export const productPage= async(oneProductArray: [], restOfProductsArray:[]) => {
 
-    const removeContainer = document.querySelector('.productPageContainer') as HTMLElement || null;
+export const productPage = async(oneProductArray: [], restOfProductsArray:[]) => {
 
-    if (removeContainer) {
-        removeContainer.remove();
-    }
+   
 
 
-if(oneProduct.length > 0 && restOfProductsArray.length > 0){
+if(oneProduct.length >= 1 && restOfProductsArray.length > 0){
 
 /* create elements - oneProduct  */
 const productPageContainer = document.createElement('article')
@@ -22,10 +19,19 @@ document.body.appendChild(productPageContainer)
 
 
 
+const text: string = `Add   <i class="fa fa-shopping-basket"></i> `
 
 
-oneProduct(oneProductArray, productPageContainer)
-restOfProducts(restOfProductsArray, productPageContainer)
+
+
+oneProduct(oneProductArray, productPageContainer, text)
+
+
+const productContainer = document.createElement('section')
+productContainer.classList.add('productContainer')
+productPageContainer.appendChild(productContainer)
+
+restOfProducts(restOfProductsArray, productContainer)
 
 
 }
