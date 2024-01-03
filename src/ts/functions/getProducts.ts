@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Product } from '../models/product';
-import productsfromjson from '../../../public/products.json'
+import productsfromjson from '../data/products.json'
 export  const getProducts = async() => {
 const url: string = import.meta.env.VITE_URL;
 const Array : Product[] = [];
@@ -12,9 +12,14 @@ try {
          })
     } 
 } catch{
+    if(productsfromjson){
     productsfromjson.forEach((item) => {
         Array.push(item)
-     })
+     })}
+     else{
+        console.error('error');
+        
+     }
 }
 return Array
 }

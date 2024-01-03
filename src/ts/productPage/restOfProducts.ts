@@ -1,8 +1,8 @@
 import { Product } from "../models/product"
 
 
-export const restOfProducts = (restOfProducts:Product[], productPageContainer:HTMLElement) => {
-    if (restOfProducts && restOfProducts.length > 0 && productPageContainer ) {
+export const restOfProducts = (restOfProducts:Product[], productContainer:HTMLElement) => {
+    if (restOfProducts && restOfProducts.length > 0 && productContainer ) {
 
 
 
@@ -16,8 +16,7 @@ export const restOfProducts = (restOfProducts:Product[], productPageContainer:HT
         
         
         /* selected product image and description container*/
-        const imgAndDescription = document.createElement('section')
-        imgAndDescription.classList.add('imgAndDescription')
+       
         
         /*  image */
         const imgAndDescription___imgContainer = document.createElement('section')
@@ -37,7 +36,7 @@ export const restOfProducts = (restOfProducts:Product[], productPageContainer:HT
         
         const imgAndDescription___button = document.createElement('button')
         imgAndDescription___button.classList.add('imgAndDescription___button')
-        imgAndDescription___button.innerHTML = ` <i class="fa fa-shopping-basket"></i> ` ;
+        imgAndDescription___button.innerHTML =   `read more` ;
         
         
         /*  titel */
@@ -50,25 +49,25 @@ export const restOfProducts = (restOfProducts:Product[], productPageContainer:HT
 
         
         /* selected product */
-        productPageContainer.appendChild(manyProducts)
+        productContainer.appendChild(manyProducts)
         
          /* image */
-         manyProducts.appendChild(imgAndDescription)
-         imgAndDescription.appendChild(imgAndDescription___imgContainer)
+         manyProducts.appendChild( imgAndDescription___imgContainer)
          imgAndDescription___imgContainer.appendChild(imgAndDescription___imgContainer___img)
         
         
         
         /* selected product titel */
-        manyProducts.appendChild(selectedProduct___titel)
+      
         
         
     
         /* description  */
-     /*    
-        imgAndDescription.appendChild(imgAndDescription___description)
-        imgAndDescription___description.appendChild(imgAndDescription___button) */
-
+      
+        manyProducts.appendChild(imgAndDescription___description)
+        imgAndDescription___description.appendChild(selectedProduct___titel)
+        imgAndDescription___description.appendChild(imgAndDescription___button) 
+    
 
 
     }
