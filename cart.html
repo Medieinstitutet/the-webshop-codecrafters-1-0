@@ -1,0 +1,103 @@
+<!-- anotherpage.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="src/scss/checkout.scss" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="background">
+      <!-- Link back to index.html -->
+      <a href="index.html">Go back to Index Page</a>
+      <header>
+        <div id="itemlist">
+          <ul id="data-list"></ul>
+        </div>
+      </header>
+      <div id="total-price"></div>
+
+      <main class="meh">
+        <div id="grid-container">
+          <form id="Personal">
+            <label for="fullName">Full Name:</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              placeholder="Beppe"
+            />
+
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Beppe@live.se"
+            />
+
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="073 788 01 03"
+            />
+
+            <label for="address">city:</label>
+            <input
+              type="text"
+              class="address"
+              name="address"
+              required
+              placeholder="Ekerö"
+            />
+            <label for="address">zipcode:</label>
+            <input
+              type="text"
+              class="address"
+              name="address"
+              required
+              placeholder="178 32"
+            />
+          </form>
+
+          <form id="Card">
+            <label for="cardNumber">Credit Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required />
+
+            <label for="expiryDate">Expiry Date:</label>
+            <input
+              type="text"
+              id="expiryDate"
+              name="expiryDate"
+              placeholder="MM/YY"
+              required
+            />
+
+            <label for="cvv">CVV:</label>
+
+            <input type="text" id="cvv" name="cvv" required placeholder="XXX" />
+
+            <button id="orderButton" type="button" onclick="submitOrder()">
+              Place Order
+            </button>
+          </form>
+        </div>
+      </main>
+
+      <footer></footer>
+    </section>
+    <script type="module" src="/src/ts/checkoutPage.ts"></script>
+  </body>
+</html>
