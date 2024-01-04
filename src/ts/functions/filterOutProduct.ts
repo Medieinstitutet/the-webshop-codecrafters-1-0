@@ -4,24 +4,33 @@ import { Product } from '../models/product';
 
 
 export const filterOutProduct = async (id:string) => {
+    /* hämtar alla produkter */
     const products = await getProducts()
 
+    /* tar bort innehåll för att motverka dubletter på sidan */
     const deleteContainer = document.querySelector<HTMLInputElement>('.productContainerAllProducts')
-    const del = document.querySelector<HTMLInputElement>('.productContainer')
-        if (del) {
-            del.remove();
-        }
-
+    const deleteAsWell = document.querySelector<HTMLElement>('.productPageContainer')
+    const home = document.querySelector<HTMLElement>('.mainContent')
+ 
         if(deleteContainer){
             deleteContainer.remove();
         }
+        if(deleteAsWell){
+            deleteAsWell.remove();
+        }
+        if(home){
+            home.remove();
+        }
   
+        /* produkter och id finns sorteras produkter in eller ut och sparas i respektive variabel */
     if(products && id){
-    const oneProduct = await products.filter(item => item._id === id) 
-    const twoProduct = await products.filter(item => item._id !== id) 
+    const oneProduct: Product[] = await products.filter(item => item._id === id) 
+    const twoProduct: Product[] = await products.filter(item => item._id !== id) 
  if(oneProduct && twoProduct){
 
-productPage(oneProduct<Product[]>, twoProduct<Product[]>)
+    /* om variablerna oneProduct && twoProduct finns så körs productPage(), 
+    produkt sida skapas */
+productPage(oneProduct, twoProduct)
     }
     }
 }
