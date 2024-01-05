@@ -1,0 +1,133 @@
+@use "/src/scss/variables" as v;
+
+#basketPage {
+  position: relative;
+  display: none;
+}
+
+#container--basket {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: v.$primary-backgroundcolor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container--basketArticles {
+  position: relative;
+  width: 90%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.basket--oneProduct {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: white;
+}
+
+.basket--image {
+  height: 70px;
+  width: 70px;
+  background-color: black;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.img {
+  width: 70px;
+  transform: translateY(-20%);
+}
+
+.openProduct--text {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.basket--productTitle,
+.productQuantity--text,
+.minusButton {
+  margin: 0%;
+  margin-left: 10px;
+}
+
+.plusButton {
+  margin-left: 3px;
+}
+
+.minusButton {
+  width: 23px;
+}
+
+.closeOrCheckoutButtons {
+  width: 90%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#basketTotalSum {
+  width: 90%;
+  height: 50px;
+  background-color: white;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalText {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.totalSumma {
+  margin-right: 10px;
+}
+
+.buttonAndPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oneProductPrice {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+
+#checkoutButton {
+  height: 35px;
+  width: 80px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+#closeButton {
+  height: 35px;
+  width: 80px;
+}
+
+.oneProduct--xmark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.basket--productTitle {
+  font-weight: 600;
+  font-size: 1.07rem;
+}
