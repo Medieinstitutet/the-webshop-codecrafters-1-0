@@ -1,4 +1,14 @@
 import { Product } from "../models/product";
+import { decreaseQuantity } from "./decreaseQuanity";
+import {
+  increaseQuantityPlusButton,
+  increaseQuantityProductButton,
+} from "./increaseQuantity";
+import { basketPrice, priceProduct } from "./pricesBasket";
+
+let productQuantityNumber = document.createElement("span");
+productQuantityNumber.className = "productQuantity--number";
+productQuantityNumber.innerHTML = "0";
 
 export const createHtmlBasket = (basket: Product[], product: Product) => {
   const basketArticles = document.getElementById(
@@ -11,6 +21,8 @@ export const createHtmlBasket = (basket: Product[], product: Product) => {
   for (let i = 0; i < basket.length; i++) {
     const currentProduct = basket[i];
     const productId = currentProduct._id;
+
+    let totalBasketPrice = 0;
 
     if (!addedProducts.has(productId)) {
       const basketOneProduct = document.createElement("section");
@@ -41,45 +53,58 @@ export const createHtmlBasket = (basket: Product[], product: Product) => {
       productQuantityText.className = "productQuantity--text";
       productQuantityText.innerHTML = "Quantity: ";
 
-      let productQuantityNumber = document.createElement("span");
-      productQuantityNumber.className = "productQuantity--number";
-      productQuantityNumber.innerHTML = "1";
-
       const buttonAndPrice = document.createElement("section");
       buttonAndPrice.className = "buttonAndPrice";
 
       const addOrRemoveButtons = document.createElement("section");
       addOrRemoveButtons.className = "addOrRemoveButtons";
 
+      increaseQuantityProductButton(productQuantityNumber);
+
       const minusButton = document.createElement("button");
       minusButton.className = "minusButton";
       minusButton.innerHTML = "-";
       minusButton.addEventListener("click", () => {
-        if (basket.length > 0) {
-          basket.splice(i, 1);
-          createHtmlBasket(basket, product);
-          let decreaseQuantity = parseInt(productQuantityNumber.innerHTML);
-          //   decreaseQuantity = Math.max(0, decreaseQuantity - 1);
-          decreaseQuantity -= 1;
-          productQuantityNumber.innerHTML = decreaseQuantity.toString();
-          console.log(basket);
-        }
+        decreaseQuantity(
+          basket,
+          i,
+          productQuantityNumber,
+          basketArticles,
+          basketOneProduct
+        );
+        const totalProductPricePlus = priceProduct(basket, productId);
+        onePrductPrice.innerHTML = totalProductPricePlus + " SEK";
+
+        totalBasketPrice = basketPrice(basket);
+        totalPrice.innerHTML = totalBasketPrice + " SEK";
       });
 
       const plusButton = document.createElement("button");
       plusButton.className = "plusButton";
       plusButton.innerHTML = "+";
       plusButton.addEventListener("click", () => {
-        basket.push(product);
-        let increaseQuantity = parseInt(productQuantityNumber.innerHTML);
-        increaseQuantity += 1;
-        productQuantityNumber.innerHTML = increaseQuantity.toString();
+        increaseQuantityPlusButton(basket, product, productQuantityNumber);
+
+        const totalProductPricePlus = priceProduct(basket, productId);
+        onePrductPrice.innerHTML = totalProductPricePlus + " SEK";
+
+        totalBasketPrice = basketPrice(basket);
+        totalPrice.innerHTML = totalBasketPrice + " SEK";
+
         console.log(basket);
       });
 
-      const onePrductPrice = document.createElement("p");
+      const totalProductPrice = priceProduct(basket, productId);
+      const onePrductPrice = document.createElement(
+        "p"
+      ) as HTMLParagraphElement;
       onePrductPrice.className = "oneProductPrice";
-      onePrductPrice.innerHTML = currentProduct.price.toString() + " SEK";
+      onePrductPrice.innerHTML = totalProductPrice + " SEK";
+
+      const totalPrice = document.getElementById("summa") as HTMLSpanElement;
+
+      const totalProductPricePlus = priceProduct(basket, productId);
+      totalPrice.innerHTML = totalProductPricePlus + " SEK";
 
       countProducts.appendChild(productQuantityText);
       countProducts.appendChild(productQuantityNumber);

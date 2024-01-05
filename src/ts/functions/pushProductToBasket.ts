@@ -5,6 +5,6 @@ let basket: Product[] = [];
 
 export const pushProduct = (product: Product) => {
   basket.push(product);
-  console.log(basket);
   createHtmlBasket(basket, product);
+  console.log(basket);
 };
