@@ -1,5 +1,5 @@
 export function openBasket() {
-  const openButton = document.getElementById("bag") as HTMLButtonElement;
+  const openButton = document.getElementById("cartIcon") as HTMLDivElement;
   openButton.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
     const basketPage = document.getElementById(

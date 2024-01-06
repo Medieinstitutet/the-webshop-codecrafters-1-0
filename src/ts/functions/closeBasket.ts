@@ -2,8 +2,9 @@ export function closeBasket() {
   const closeButton = document.getElementById(
     "closeButton"
   ) as HTMLButtonElement;
-  const openButton = document.getElementById("openButton") as HTMLButtonElement;
-  closeButton.addEventListener("click", () => {
+  const openButton = document.getElementById("cartIcon") as HTMLDivElement;
+  closeButton.addEventListener("click", (event: MouseEvent) => {
+    event.preventDefault();
     const basketPage = document.getElementById(
       "basketPage"
     ) as HTMLTableSectionElement;

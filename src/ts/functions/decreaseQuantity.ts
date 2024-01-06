@@ -9,9 +9,9 @@ export const decreaseQuantity = (
 ) => {
   if (basket.length > 0) {
     basket.splice(i, 1);
-    let decreaseQuantity = parseInt(productQuantityNumber.innerHTML);
-    decreaseQuantity = Math.max(0, decreaseQuantity - 1);
-    productQuantityNumber.innerHTML = decreaseQuantity.toString();
+    let decreaseQuantityy = parseInt(productQuantityNumber.innerHTML);
+    decreaseQuantityy = Math.max(0, decreaseQuantityy - 1);
+    productQuantityNumber.innerHTML = decreaseQuantityy.toString();
     console.log(basket);
     if (productQuantityNumber.innerHTML === "0") {
       basketArticles.removeChild(basketOneProduct);

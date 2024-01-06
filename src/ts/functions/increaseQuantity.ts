@@ -1,19 +1,13 @@
 import { Product } from "../models/product";
 
-export const increaseQuantityPlusButton = (
-  basket: Product[],
-  product: Product,
-  productQuantityNumber: HTMLSpanElement
-) => {
-  basket.push(product);
-  increaseQuantityProductButton(productQuantityNumber);
-  console.log(basket);
-};
+export const increaseQuantity = (basket: Product[], productId: string) => {
+  let productQuantity = 0;
 
-export const increaseQuantityProductButton = (
-  productQuantityNumber: HTMLSpanElement
-) => {
-  let increaseQuantit = parseInt(productQuantityNumber.innerHTML);
-  increaseQuantit += 1;
-  productQuantityNumber.innerHTML = increaseQuantit.toString();
+  for (let j = 0; j < basket.length; j++) {
+    if (basket[j]._id === productId) {
+      productQuantity += 1;
+    }
+  }
+
+  return productQuantity;
 };

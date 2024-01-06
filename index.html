@@ -29,6 +29,45 @@
   </head>
 
   <body>
+    <section id="basketPage">
+      <section id="container--basket">
+        <h3 class="pageTitle">Articles</h3>
+        <section class="container--basketArticles" id="basketArticles">
+          <!-- <section class="basket--oneProduct">
+            <section class="basket--image"></section>
+            <section class="openProduct--text">
+              <section class="titleAndXmark">
+                <section class="oneProduct--xmark">X</section>
+                <p class="basket--productTitle">Test</p>
+              </section>
+              <section class="countProducts">
+                <span class="productQuantity--text">Antal:</span>
+                <span class="productQuantity--number">1</span>
+              </section>
+              <section class="buttonAndPrice">
+                <section class="addOrRemoveButtons">
+                  <button class="minusButton">-</button>
+                  <button class="plusButton">+</button>
+                </section>
+                <p class="oneProductPrice">1000 SEK</p>
+              </section>
+            </section>
+          </section> -->
+        </section>
+        <section id="basketEmpty">
+          <span class="basketEmpty--text">Your shoppingcart is empty</span>
+        </section>
+        <section id="basketTotalSum">
+          <span class="totalText">TOTALT</span>
+          <span id="summa" class="totalSumma">0 SEK</span>
+        </section>
+        <section class="closeOrCheckoutButtons">
+          <button id="closeButton">close</button>
+          <button id="checkoutButton">checkout</button>
+        </section>
+      </section>
+    </section>
+
     <!-- Flyttade naven så den blir fixed på body -->
     <header class="topnav">
       <div class="cart-icon" id="cartIcon">
@@ -85,40 +124,6 @@
         <h1>hej</h1>
       </div>
     </main>
-
-    <section id="basketPage">
-      <section id="container--basket">
-        <h3 class="pageTitle">Articles</h3>
-        <section class="container--basketArticles" id="basketArticles">
-          <section class="basket--oneProduct">
-            <section class="oneProduct--xmark">X</section>
-            <section class="basket--image"></section>
-            <section class="openProduct--text">
-              <p class="basket--productTitle">Test</p>
-              <section class="countProducts">
-                <span class="productQuantity--text">Antal:</span>
-                <span class="productQuantity--number">1</span>
-              </section>
-              <section class="buttonAndPrice">
-                <section class="addOrRemoveButtons">
-                  <button class="minusButton">-</button>
-                  <button class="plusButton">+</button>
-                </section>
-                <p class="oneProductPrice">1000 SEK</p>
-              </section>
-            </section>
-          </section>
-        </section>
-        <section id="basketTotalSum">
-          <span class="totalText">TOTALT</span>
-          <span id="summa" class="totalSumma"></span>
-        </section>
-        <section class="closeOrCheckoutButtons">
-          <button id="closeButton">close</button>
-          <button id="checkoutButton">checkout</button>
-        </section>
-      </section>
-    </section>
 
     <script type="module" src="/src/ts/main.ts"></script>
     <script type="module" src="/src/ts/functions/openBasket.ts"></script>

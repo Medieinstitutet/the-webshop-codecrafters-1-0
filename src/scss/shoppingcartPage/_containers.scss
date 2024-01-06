@@ -3,6 +3,8 @@
 #basketPage {
   position: relative;
   display: none;
+  height: 100vh;
+  z-index: 1;
 }
 
 #container--basket {
@@ -122,12 +124,17 @@
 }
 
 .oneProduct--xmark {
-  position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
+  z-index: 1;
 }
 
 .basket--productTitle {
   font-weight: 600;
   font-size: 1.07rem;
+}
+
+.titleAndXmark {
+  display: flex;
+  justify-content: space-between;
 }

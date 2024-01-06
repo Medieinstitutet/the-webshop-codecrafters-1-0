@@ -1,10 +1,7 @@
-
-@use 'allproducts';
-@use 'homePage';
-@use 'productpage';
-
-
-
+@use "allproducts";
+@use "homePage";
+@use "productpage";
+@use "/src/scss/shoppingcartPage/containers";
 
 .body {
   margin: 0;
