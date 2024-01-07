@@ -8,6 +8,6 @@ export const increaseQuantity = (basket: Product[], productId: string) => {
       productQuantity += 1;
     }
   }
-
+  console.log(productQuantity);
   return productQuantity;
 };

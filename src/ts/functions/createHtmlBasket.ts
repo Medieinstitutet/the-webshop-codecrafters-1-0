@@ -4,24 +4,23 @@ import { decreaseQuantity } from "./decreaseQuantity";
 import { basketEmptyMessage } from "./emptyBasketMessage";
 import { increaseQuantity } from "./increaseQuantity";
 import { basketPrice, priceProduct } from "./prices";
-import { xmark } from "./xmark";
+import { removeObjectsWithXmark } from "./removeProductWithXmark";
 
 export const createHtmlBasket = (basket: Product[], id: Product) => {
   const basketArticles = document.getElementById(
     "basketArticles"
   ) as HTMLTableSectionElement;
   basketArticles.innerHTML = "";
+  const emptyBasket = basketEmptyMessage(basket);
 
   const addedProducts: Set<string> = new Set();
-
-  let totalBasketPrice = 0;
-
-  const emptyBasket = basketEmptyMessage(basket);
 
   for (let i = 0; i < basket.length; i++) {
     const currentProduct = basket[i];
     const productId = currentProduct._id;
     emptyBasket.innerHTML = "";
+
+    let totalBasketPrice = 0;
 
     if (!addedProducts.has(productId)) {
       const basketOneProduct = document.createElement("section");
@@ -51,6 +50,17 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
       productQuantityText.className = "productQuantity--text";
       productQuantityText.innerHTML = "Quantity: ";
 
+      const oneProductXmark = document.createElement("section");
+      oneProductXmark.className = "oneProduct--xmark";
+      oneProductXmark.innerHTML = "X";
+      oneProductXmark.dataset.productId = productId;
+      oneProductXmark.addEventListener("click", () => {
+        removeObjectsWithXmark(basket, productId);
+        console.log(oneProductXmark, "klickade på kryss");
+        createHtmlBasket(basket, id);
+        console.log(basket);
+      });
+
       const buttonAndPrice = document.createElement("section");
       buttonAndPrice.className = "buttonAndPrice";
 
@@ -68,14 +78,12 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
           basketArticles,
           basketOneProduct
         );
-
         const totalProductPricePlus = priceProduct(basket, productId);
         onePrductPrice.innerHTML = totalProductPricePlus + " SEK";
 
         totalBasketPrice = basketPrice(basket);
         totalPrice.innerHTML = totalBasketPrice + " SEK";
-
-        // createHtmlBasket(basket, id);
+        createHtmlBasket(basket, id);
       });
 
       const plusButton = document.createElement("button");
@@ -98,7 +106,7 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
 
       const totalQuantityProduct = increaseQuantity(basket, productId);
 
-      const productQuantityNumber = document.createElement("span");
+      let productQuantityNumber = document.createElement("span");
       productQuantityNumber.className = "productQuantity--number";
       productQuantityNumber.innerHTML += totalQuantityProduct;
       console.log(totalQuantityProduct);
@@ -113,18 +121,11 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
 
       const totalPrice = document.getElementById("summa") as HTMLSpanElement;
 
-      const oneProductXmark = xmark(
-        basket,
-        productId,
-        totalPrice,
-        totalBasketPrice,
-        id
-      );
-
       const totalProductPricePlus = priceProduct(basket, productId);
       totalPrice.innerHTML = totalProductPricePlus + " SEK";
 
       totalBasketPrice = basketPrice(basket);
+      totalPrice.innerHTML = totalBasketPrice + " SEK";
 
       countProducts.appendChild(productQuantityText);
       countProducts.appendChild(productQuantityNumber);
@@ -132,14 +133,15 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
       addOrRemoveButtons.appendChild(plusButton);
       buttonAndPrice.appendChild(addOrRemoveButtons);
       buttonAndPrice.appendChild(onePrductPrice);
-      titleAndXmark.appendChild(basketProductTitle);
       titleAndXmark.appendChild(oneProductXmark);
       openProductText.appendChild(titleAndXmark);
+      openProductText.appendChild(basketProductTitle);
       openProductText.appendChild(countProducts);
       openProductText.appendChild(buttonAndPrice);
       basketImage.appendChild(img);
       basketOneProduct.appendChild(basketImage);
       basketOneProduct.appendChild(openProductText);
+      basketOneProduct.appendChild(oneProductXmark);
       basketArticles.appendChild(basketOneProduct);
 
       addedProducts.add(productId);
