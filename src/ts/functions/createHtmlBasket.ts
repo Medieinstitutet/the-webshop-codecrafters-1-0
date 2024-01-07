@@ -1,149 +1,162 @@
-import { addProduct } from "../eventlisteners/addProduct";
+import { addProduct, saveToLocalstorage } from "../eventlisteners/addProduct";
+import { removeProduct } from "../eventlisteners/removeproducts";
 import { Product } from "../models/product";
-import { decreaseQuantity } from "./decreaseQuantity";
 import { basketEmptyMessage } from "./emptyBasketMessage";
 import { increaseQuantity } from "./increaseQuantity";
+import { buttonMinus } from "./minusButton";
+import { buttonPlus } from "./plusButton";
 import { basketPrice, priceProduct } from "./prices";
-import { removeObjectsWithXmark } from "./removeProductWithXmark";
+import { xmark } from "./xmark";
 
+//Funktion för att skapa html för varukorg
 export const createHtmlBasket = (basket: Product[], id: Product) => {
-  const basketArticles = document.getElementById(
-    "basketArticles"
-  ) as HTMLTableSectionElement;
+  // saveToLocalstorage();
+  //hämta element där varukorgsartiklar hamnar
+  const basketArticles = document.getElementById("basketArticles") as HTMLTableSectionElement;
   basketArticles.innerHTML = "";
+
+  //skapa meddelande för tom varukorg
   const emptyBasket = basketEmptyMessage(basket);
 
+  //Skapa en uppsättning för att hålla reda på unika produkt-ID
   const addedProducts: Set<string> = new Set();
 
+  //Sortera varukorg (just nu efter titel)
+  basket.sort((a, b) => a.titel.localeCompare(b.titel));
+
+  //Loopa igenom varje produkt i varukorgen
   for (let i = 0; i < basket.length; i++) {
     const currentProduct = basket[i];
     const productId = currentProduct._id;
+
+    //Ta bort varukorgsmeddelande när produkt läggs till
     emptyBasket.innerHTML = "";
 
     let totalBasketPrice = 0;
 
+    //Skapa HTML för varje produkt som inte redan har lagts till sedan tidigare
     if (!addedProducts.has(productId)) {
+      //Skapa element för varje del av produktens presentation
       const basketOneProduct = document.createElement("section");
-      basketOneProduct.className = "basket--oneProduct";
+      basketOneProduct.className = "container--basketOneProduct";
 
       const basketImage = document.createElement("section");
-      basketImage.className = "basket--image";
+      basketImage.className = "container--basketImage";
 
+      //visa produktbild
       const img = document.createElement("img");
       img.src = `${currentProduct.image}`;
       img.className = "img";
 
-      const openProductText = document.createElement("section");
-      openProductText.className = "openProduct--text";
+      const oneProductText = document.createElement("section");
+      oneProductText.className = "container--openProductText";
 
       const titleAndXmark = document.createElement("section");
-      titleAndXmark.className = "titleAndXmark";
+      titleAndXmark.className = "container--titleAndXmark";
 
+      //Visa Produkttitel
       const basketProductTitle = document.createElement("p");
-      basketProductTitle.className = "basket--productTitle";
+      basketProductTitle.className = "basketProductTitle";
       basketProductTitle.innerHTML = currentProduct.titel;
 
-      const countProducts = document.createElement("section");
-      countProducts.className = "countProducts";
+      const productQuantityAndIndividualPrice = document.createElement("section");
+      productQuantityAndIndividualPrice.className = "container--productQuantityIndividualPrice";
+
+      const productQuantity = document.createElement("section");
+      productQuantity.className = "container--productQuantity";
+
+      //Visa det individuella priset
+      const indiviualPrice = document.createElement("span");
+      indiviualPrice.className = "indiviualPrice";
+      indiviualPrice.innerHTML += currentProduct.price + " SEK";
 
       const productQuantityText = document.createElement("span");
-      productQuantityText.className = "productQuantity--text";
+      productQuantityText.className = "productQuantityText";
       productQuantityText.innerHTML = "Quantity: ";
 
-      const oneProductXmark = document.createElement("section");
-      oneProductXmark.className = "oneProduct--xmark";
-      oneProductXmark.innerHTML = "X";
-      oneProductXmark.dataset.productId = productId;
-      oneProductXmark.addEventListener("click", () => {
-        removeObjectsWithXmark(basket, productId);
-        console.log(oneProductXmark, "klickade på kryss");
-        createHtmlBasket(basket, id);
-        console.log(basket);
-      });
-
-      const buttonAndPrice = document.createElement("section");
-      buttonAndPrice.className = "buttonAndPrice";
+      const buttonsAndPrice = document.createElement("section");
+      buttonsAndPrice.className = "container--buttonAndPrice";
 
       const addOrRemoveButtons = document.createElement("section");
-      addOrRemoveButtons.className = "addOrRemoveButtons";
+      addOrRemoveButtons.className = "container--addOrRemoveButtons";
 
-      const minusButton = document.createElement("button");
-      minusButton.className = "minusButton";
-      minusButton.innerHTML = "-";
-      minusButton.addEventListener("click", () => {
-        decreaseQuantity(
-          basket,
-          i,
-          productQuantityNumber,
-          basketArticles,
-          basketOneProduct
-        );
-        const totalProductPricePlus = priceProduct(basket, productId);
-        onePrductPrice.innerHTML = totalProductPricePlus + " SEK";
-
-        totalBasketPrice = basketPrice(basket);
-        totalPrice.innerHTML = totalBasketPrice + " SEK";
-        createHtmlBasket(basket, id);
-      });
-
-      const plusButton = document.createElement("button");
-      plusButton.className = "plusButton";
-      plusButton.innerHTML = "+";
-      addProduct(plusButton, currentProduct);
-
-      plusButton.addEventListener("click", () => {
-        const totalQuantityProductPlus = increaseQuantity(basket, productId);
-        productQuantityNumber.innerHTML += totalQuantityProductPlus;
-
-        const totalProductPricePlus = priceProduct(basket, productId);
-        onePrductPrice.innerHTML = totalProductPricePlus + " SEK";
-
-        totalBasketPrice = basketPrice(basket);
-        totalPrice.innerHTML = totalBasketPrice + " SEK";
-
-        console.log(basket);
-      });
-
+      //Hämta och visa antal produkter
       const totalQuantityProduct = increaseQuantity(basket, productId);
-
-      let productQuantityNumber = document.createElement("span");
-      productQuantityNumber.className = "productQuantity--number";
+      const productQuantityNumber = document.createElement("span");
+      productQuantityNumber.className = "productQuantityNumber";
       productQuantityNumber.innerHTML += totalQuantityProduct;
-      console.log(totalQuantityProduct);
 
+      //Hämta och visa totalt pris för alla produkter med ett och sammma ID
       const totalProductPrice = priceProduct(basket, productId);
-
-      const onePrductPrice = document.createElement(
-        "p"
-      ) as HTMLParagraphElement;
+      const onePrductPrice = document.createElement("p") as HTMLParagraphElement;
       onePrductPrice.className = "oneProductPrice";
       onePrductPrice.innerHTML = totalProductPrice + " SEK";
 
+      //Hämta element för att visa det totala priset för hela varukorgen
       const totalPrice = document.getElementById("summa") as HTMLSpanElement;
 
-      const totalProductPricePlus = priceProduct(basket, productId);
-      totalPrice.innerHTML = totalProductPricePlus + " SEK";
-
+      //Uppdatera det totala priset för hela varukorgen
       totalBasketPrice = basketPrice(basket);
       totalPrice.innerHTML = totalBasketPrice + " SEK";
 
-      countProducts.appendChild(productQuantityText);
-      countProducts.appendChild(productQuantityNumber);
-      addOrRemoveButtons.appendChild(minusButton);
+      //Funktion för att uppdatera priset när man trycker på minusknappen
+      const minusBOTTON = buttonMinus(
+        basket,
+        productId,
+        totalBasketPrice,
+        onePrductPrice,
+        totalPrice
+      ) as HTMLButtonElement;
+
+      //Funktion för att kunna ta bort produkter när man trycker på minusknappen
+      removeProduct(
+        minusBOTTON,
+        basket,
+        productId,
+        i,
+        productQuantityNumber,
+        basketArticles,
+        basketOneProduct,
+        totalPrice,
+        totalBasketPrice,
+        currentProduct
+      );
+
+      //En funktion för att kunna ta bort alla produkter av ett specifikt id på en och samma gång (klickar på krysset då)
+      const oneProductXmark = xmark(basket, productId, totalPrice, totalBasketPrice, id);
+
+      //Funktion för att uppdatera pris och kvanitiet när plusknappen klickas
+      const plusButton = buttonPlus(
+        basket,
+        productId,
+        productQuantityNumber,
+        totalBasketPrice,
+        onePrductPrice,
+        totalPrice
+      ) as HTMLButtonElement;
+
+      //Funktion för att öka antalet produkter med plusknappen i varukorgen
+      addProduct(plusButton, currentProduct);
+
+      productQuantity.appendChild(productQuantityText);
+      productQuantity.appendChild(productQuantityNumber);
+      addOrRemoveButtons.appendChild(minusBOTTON);
       addOrRemoveButtons.appendChild(plusButton);
-      buttonAndPrice.appendChild(addOrRemoveButtons);
-      buttonAndPrice.appendChild(onePrductPrice);
+      buttonsAndPrice.appendChild(addOrRemoveButtons);
+      buttonsAndPrice.appendChild(onePrductPrice);
+      titleAndXmark.appendChild(basketProductTitle);
       titleAndXmark.appendChild(oneProductXmark);
-      openProductText.appendChild(titleAndXmark);
-      openProductText.appendChild(basketProductTitle);
-      openProductText.appendChild(countProducts);
-      openProductText.appendChild(buttonAndPrice);
+      oneProductText.appendChild(titleAndXmark);
+      productQuantityAndIndividualPrice.appendChild(productQuantity);
+      productQuantityAndIndividualPrice.appendChild(indiviualPrice);
+      oneProductText.appendChild(productQuantityAndIndividualPrice);
+      oneProductText.appendChild(buttonsAndPrice);
       basketImage.appendChild(img);
       basketOneProduct.appendChild(basketImage);
-      basketOneProduct.appendChild(openProductText);
-      basketOneProduct.appendChild(oneProductXmark);
+      basketOneProduct.appendChild(oneProductText);
       basketArticles.appendChild(basketOneProduct);
 
+      //Lägg till en produkts id i Set:en för att undvika duplikation
       addedProducts.add(productId);
     }
   }

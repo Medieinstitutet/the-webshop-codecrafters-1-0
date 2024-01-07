@@ -1,5 +1,4 @@
 import { createHtmlBasket } from "../functions/createHtmlBasket";
-import { shoppingcart } from "../main";
 import { Product } from "../models/product";
 
 /* Hämtar knappen som eventlistenern ska kopplas till och id:t 
@@ -23,3 +22,14 @@ export const addProduct = (button: HTMLElement, id: Product) => {
     console.log(basket);
   });
 };
+
+// export function saveToLocalstorage() {
+//   localStorage.setItem("basketarticles", JSON.stringify(basket));
+//   // console.log("Saving to localStorage:", lists);
+// }
+
+// export function getFromLocalstorage() {
+//   if (localStorage.getItem("basketarticles")) {
+//     basket = JSON.parse(localStorage.getItem("basketarticles"));
+//   }
+// }
