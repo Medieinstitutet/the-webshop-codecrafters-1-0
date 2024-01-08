@@ -5,10 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -30,6 +27,24 @@
   </head>
 
   <body>
+    <section id="basketPage">
+      <section id="container--basket">
+        <h3 id="pageTitleArticles" class="pageTitle">Articles</h3>
+        <section class="container--basketArticles" id="basketArticles"></section>
+        <section class="container--basketEmpty">
+          <span id="basketEmpty" class="basketEmptyText"></span>
+        </section>
+        <section id="container--basketTotalSum">
+          <span class="totalText">TOTALT</span>
+          <span id="summa" class="totalSumma">0 SEK</span>
+        </section>
+        <section class="closeOrCheckoutButtons">
+          <button id="closeButton">Close</button>
+          <a id="checkoutButton" href="cart.html">Checkout</a>
+        </section>
+      </section>
+    </section>
+
     <!-- Flyttade naven så den blir fixed på body -->
     <header class="topnav">
       <div class="cart-icon" id="cartIcon">
@@ -73,9 +88,7 @@
           <h1 id="text2">weekends</h1>
           <h1 id="text3">too another level</h1>
 
-          <a id="subButton" class="btn btn-outline-warning" href="#Product-page"
-            >Subscribe now!</a
-          >
+          <a id="subButton" class="btn btn-outline-warning" href="#Product-page">Subscribe now!</a>
         </div>
         <div class="arrow">
           <a href="#productPage" class="fa-regular fa-circle-down fa-2xl"></a>
@@ -84,7 +97,5 @@
     </section>
 
     <script type="module" src="/src/ts/main.ts"></script>
-
-    <script type="module" src="/src/ts/popupcart.ts"></script>
   </body>
 </html>

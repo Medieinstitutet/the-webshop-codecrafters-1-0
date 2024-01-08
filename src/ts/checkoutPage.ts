@@ -4,7 +4,7 @@ import { Product } from "../ts/models/product";
 
 // Funktion för att hämta produkter från local storage eller returnera en tom array om inga produkter är lagrade.
 export const getProductsFromLocalStorage = (): Product[] => {
-  const products = localStorage.getItem("products");
+  const products = localStorage.getItem("basketarticles");
   return products ? JSON.parse(products) : [];
 };
 
@@ -37,6 +37,8 @@ export const renderProductsInDOM = (products: Product[]): void => {
     const groupedProducts = Object.values(groupProductsById(products));
     console.log(products);
 
+    // products.sort((A, B) => A.titel.localeCompare(B.titel));
+
     groupedProducts.forEach((product) => {
       const productElement = document.createElement("ul");
 
@@ -52,22 +54,15 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
       productElement.id = "listItems";
 
-      const AddProductButton =
-        productElement.querySelector(".AddProductButton");
+      const AddProductButton = productElement.querySelector(".AddProductButton");
 
-      const removeProductButton = productElement.querySelector(
-        ".removeProductButton"
-      );
+      const removeProductButton = productElement.querySelector(".removeProductButton");
       if (removeProductButton) {
         // Lägger till en händelselyssnare för att ta bort produkten när knappen klickas.
         removeProductButton.addEventListener("click", () => {
-          const productIdToRemove =
-            removeProductButton.getAttribute("data-product-id");
+          const productIdToRemove = removeProductButton.getAttribute("data-product-id");
           if (productIdToRemove) {
-            const updatedProductsArray = removeProduct(
-              productIdToRemove,
-              products
-            );
+            const updatedProductsArray = removeProduct(productIdToRemove, products);
             renderProductsInDOM(updatedProductsArray);
           }
         });
@@ -75,8 +70,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
       if (AddProductButton) {
         // Lägger till en händelselyssnare för att Addera produkten när knappen klickas.
         AddProductButton.addEventListener("click", () => {
-          const productIdToAdd =
-            AddProductButton.getAttribute("data-product-id");
+          const productIdToAdd = AddProductButton.getAttribute("data-product-id");
           if (productIdToAdd) {
             const updatedProductsArray = addProduct(productIdToAdd, products);
 
@@ -89,38 +83,30 @@ export const renderProductsInDOM = (products: Product[]): void => {
     });
 
     // Ta bort funktion
-    const removeProduct = (
-      productId: string,
-      products: Product[]
-    ): Product[] => {
+    const removeProduct = (productId: string, products: Product[]): Product[] => {
       const updatedProducts = [...products];
-      const indexToRemove = updatedProducts.findIndex(
-        (product) => product._id === productId
-      );
+      const indexToRemove = updatedProducts.findIndex((product) => product._id === productId);
       // Tar bort från listan om antalet är 0
       if (indexToRemove !== -1) {
         updatedProducts.splice(indexToRemove, 1);
 
         // Uppdaterar detta till local storage
-        localStorage.setItem("products", JSON.stringify(updatedProducts));
+        localStorage.setItem("basketarticles", JSON.stringify(updatedProducts));
       }
 
       return updatedProducts;
     };
     const addProduct = (productId: string, products: Product[]): Product[] => {
-      const storedProducts = JSON.parse(
-        localStorage.getItem("products") || "[]"
-      );
-      const productToAdd = storedProducts.find(
-        (product) => product._id === productId
-      );
+      const storedProducts = JSON.parse(localStorage.getItem("basketarticles") || "[]");
+      const productToAdd = storedProducts.find((product) => product._id === productId);
+      products.sort((A, B) => A.titel.localeCompare(B.titel));
 
       if (productToAdd) {
         const updatedProducts = [...products, productToAdd];
 
-        updatedProducts.sort((a, b) => (a.titel > b.titel ? 1 : -1));
+        // updatedProducts.sort((a, b) => (a.titel > b.titel ? 1 : -1));
 
-        localStorage.setItem("products", JSON.stringify(updatedProducts));
+        localStorage.setItem("basketarticles", JSON.stringify(updatedProducts));
 
         return updatedProducts;
       }
@@ -129,10 +115,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
     };
 
     // Summerar alla priser i listan
-    const totalPrice = groupedProducts.reduce(
-      (sum, product) => sum + product.price * product.amount,
-      0
-    );
+    const totalPrice = groupedProducts.reduce((sum, product) => sum + product.price * product.amount, 0);
 
     const totalElement = document.createElement("div");
     totalElement.innerHTML = `<strong id="itemTotal">Totalt pris: ${totalPrice}</strong> `;

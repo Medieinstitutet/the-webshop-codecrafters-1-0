@@ -1,11 +1,10 @@
-
-@use 'allproducts';
-@use 'homePage';
-@use 'productpage';
-@use 'orderpage';
-
-
-
+@use "allproducts";
+@use "homePage";
+@use "productpage";
+@use "/src/scss/basketPage/containers";
+@use "/src/scss/basketPage/texts";
+@use "/src/scss/basketPage/buttons";
+@use "orderpage";
 
 .body {
   margin: 0;

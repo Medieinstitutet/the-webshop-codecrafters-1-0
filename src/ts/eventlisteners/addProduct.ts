@@ -2,10 +2,7 @@ import { Product } from "../models/product";
 
 // Example function to generate a simple unique ID (you might want to use a more robust solution)
 export const generateUniqueId = (): string => {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  );
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 };
 
 export const addProduct = (button: HTMLElement, product: Product) => {
@@ -13,9 +10,7 @@ export const addProduct = (button: HTMLElement, product: Product) => {
     event.preventDefault();
 
     const existingProductsString = localStorage.getItem("products");
-    const existingProducts = existingProductsString
-      ? JSON.parse(existingProductsString)
-      : [];
+    const existingProducts = existingProductsString ? JSON.parse(existingProductsString) : [];
 
     // Generate a unique ID
     const uniqueId = generateUniqueId();
