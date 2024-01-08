@@ -10,6 +10,20 @@ export const addProductToBasket = (button: HTMLElement, id: Product) => {
     // Lägg till den valda produkten i varukorgen.
     basket.push(id);
     // Uppdatera det visuella gränssnittet för varukorgen.
-    createHtmlBasket(basket, id);
+    createHtmlBasket(basket);
   });
 };
+
+export function saveToLocalstorage(basket: Product[]) {
+  localStorage.setItem("basketarticles", JSON.stringify(basket));
+  // console.log("Saving to localStorage:", lists);
+}
+
+function getFromLocalstorage(basket: Product[]) {
+  if (localStorage.getItem("basketarticles")) {
+    basket = JSON.parse(localStorage.getItem("basketarticles") || "");
+  }
+  createHtmlBasket(basket);
+}
+
+getFromLocalstorage(basket);

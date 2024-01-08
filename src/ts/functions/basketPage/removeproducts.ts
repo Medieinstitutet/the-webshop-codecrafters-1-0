@@ -12,8 +12,7 @@ export const removeProduct = (
   basketArticles: HTMLTableSectionElement,
   basketOneProduct: HTMLElement,
   totalPrice: HTMLSpanElement,
-  totalBasketPrice: number,
-  id: Product
+  totalBasketPrice: number
 ) => {
   button.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
@@ -38,7 +37,7 @@ export const removeProduct = (
 
       // Återställ priset och skapa om HTML för kundvagnen
       zeroOutPrice(basket, totalPrice, totalBasketPrice);
-      createHtmlBasket(basket, id);
+      createHtmlBasket(basket);
     }
   });
 };

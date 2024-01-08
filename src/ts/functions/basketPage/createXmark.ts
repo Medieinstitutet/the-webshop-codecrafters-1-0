@@ -4,13 +4,7 @@ import { deleteWithXmark } from "./deleteWithXmark";
 import { zeroOutPrice } from "./zeroOutPrice";
 
 // Funktion för att skapa ett "X"-element (kryss) för att ta bort en produkt från kundvagnen
-export const xmark = (
-  basket: Product[],
-  productId: string,
-  totalPrice: HTMLSpanElement,
-  totalBasketPrice: number,
-  id: Product
-) => {
+export const xmark = (basket: Product[], productId: string, totalPrice: HTMLSpanElement, totalBasketPrice: number) => {
   // Skapa ett HTML-element för "X"-markeringen
   const oneProductXmark = document.createElement("section");
   oneProductXmark.className = "oneProduct--xmark";
@@ -22,7 +16,7 @@ export const xmark = (
     // Återställ det totala priset för kundvagnen
     zeroOutPrice(basket, totalPrice, totalBasketPrice);
     // Skapa om HTML-representationen av kundvagnen efter borttagning av produkten
-    createHtmlBasket(basket, id);
+    createHtmlBasket(basket);
   });
 
   return oneProductXmark;
