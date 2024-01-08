@@ -10,6 +10,7 @@ import { addProductToBasket } from "../../eventlisteners/addProductsBasket";
 
 //Funktion för att skapa html för varukorg
 export const createHtmlBasket = (basket: Product[], id: Product) => {
+  console.log(basket);
   // saveToLocalstorage();
   //hämta element där varukorgsartiklar hamnar
   const basketArticles = document.getElementById("basketArticles") as HTMLTableSectionElement;

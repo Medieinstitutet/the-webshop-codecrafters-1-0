@@ -8,6 +8,6 @@ export const addProduct = (button: HTMLElement, id: Product) => {
   button.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
     shoppingcart.push(id);
-    console.log(shoppingcart);
+    // console.log(shoppingcart);
   });
 };
