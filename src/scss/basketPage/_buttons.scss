@@ -1,3 +1,5 @@
+@use "/src/scss/mixins";
+
 .minusButton {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -46,4 +48,19 @@
   top: 0px;
   margin-right: 10px;
   z-index: 1;
+}
+
+#basketPage {
+  @include mixins.devices(tablet) {
+    .oneProduct--xmark {
+      font-size: 1.4rem;
+    }
+    #closeButton,
+    #checkoutButton {
+      height: 60px;
+      width: 130px;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
 }

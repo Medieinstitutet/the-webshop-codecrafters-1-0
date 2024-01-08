@@ -1,3 +1,5 @@
+@use "/src/scss/mixins";
+
 .basketProductTitle {
   font-weight: 600;
   font-size: 1.07rem;
@@ -30,5 +32,33 @@
 }
 
 #pageTitleArticles {
-  padding-top: 25px;
+  padding-top: 30px;
+}
+
+#basketPage {
+  @include mixins.devices(tablet) {
+    .basketProductTitle {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    .oneProductPrice {
+      font-size: 1.4rem;
+    }
+    .productQuantityText,
+    .productQuantityNumber {
+      font-size: 1.2rem;
+    }
+    .indiviualPrice {
+      font-size: 1rem;
+    }
+    .totalText {
+      font-size: 1.5rem;
+    }
+    .totalSumma {
+      font-size: 1.5rem;
+    }
+    .basketEmptyText {
+      font-size: 1.3rem;
+    }
+  }
 }

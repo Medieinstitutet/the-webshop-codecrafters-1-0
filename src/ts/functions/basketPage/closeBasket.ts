@@ -1,11 +1,14 @@
 export function closeBasket() {
+  // Hämta stängknappen och öppningsknappen för basket
   const closeButton = document.getElementById("closeButton") as HTMLButtonElement;
-  const openButton = document.getElementById("bag") as HTMLDivElement;
+
   closeButton.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
+
+    // Hämta kundvagnssidan från html
     const basketPage = document.getElementById("basketPage") as HTMLTableSectionElement;
+
+    // Dölj kundvagnssidan när stängknappen klickas
     basketPage.style.display = "none";
-    openButton.style.display = "block";
-    console.log("klickade på knappen");
   });
 }

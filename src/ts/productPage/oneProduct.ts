@@ -1,4 +1,5 @@
-import { addProduct, addProductToBasket } from "../eventlisteners/addProduct";
+import { addProduct } from "../eventlisteners/addProduct";
+import { addProductToBasket } from "../eventlisteners/addProductsBasket";
 import { seeProduct } from "../eventlisteners/seeProduct";
 import { Product } from "../models/product";
 export const oneProduct = (oneProduct?: Product[], productPageContainer?: HTMLElement, text?: string) => {

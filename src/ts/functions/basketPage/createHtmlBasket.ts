@@ -1,12 +1,12 @@
-import { addProductToBasket } from "../eventlisteners/addProduct";
-import { removeProduct } from "../eventlisteners/removeproducts";
-import { Product } from "../models/product";
+import { removeProduct } from "./removeproducts";
+import { Product } from "../../models/product";
 import { basketEmptyMessage } from "./emptyBasketMessage";
 import { increaseQuantity } from "./increaseQuantity";
 import { buttonMinus } from "./minusButton";
 import { buttonPlus } from "./plusButton";
 import { basketPrice, priceProduct } from "./prices";
-import { xmark } from "./xmark";
+import { xmark } from "./createXmark";
+import { addProductToBasket } from "../../eventlisteners/addProductsBasket";
 
 //Funktion för att skapa html för varukorg
 export const createHtmlBasket = (basket: Product[], id: Product) => {
