@@ -4,7 +4,7 @@ import { Product } from "./product";
 export interface Order{
   firstname: string,
   lastname:string,
-  phone:string,
+  phone:number,
 street: string,
 postcode:number,
 county: string,

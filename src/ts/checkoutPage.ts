@@ -1,4 +1,5 @@
 import { Product } from "../ts/models/product";
+import { checkOut } from "./eventlisteners/checkOut";
 
 // Gränssnitt som utökar Product-gränssnittet med en amount-egenskap.
 
@@ -10,7 +11,7 @@ export const getProductsFromLocalStorage = (): Product[] => {
 
 const groupProductsById = (products: Product[]): { [id: string]: Product } => {
   return products.reduce((result, product) => {
-    const { _id, titel, image, price, uniqueId } = product;
+    const { _id, titel, image, price } = product;
 
     if (!result[_id]) {
       // Skapar en grupperad produkt om det inte finns en med det givna ID:t.
@@ -35,8 +36,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
     // Grupperar produkter
     const groupedProducts = Object.values(groupProductsById(products));
-    console.log(products);
-
+  
     groupedProducts.forEach((product) => {
       const productElement = document.createElement("ul");
 
@@ -135,14 +135,28 @@ export const renderProductsInDOM = (products: Product[]): void => {
     );
 
     const totalElement = document.createElement("div");
+ 
     totalElement.innerHTML = `<strong id="itemTotal">Totalt pris: ${totalPrice}</strong> `;
     itemListContainer.appendChild(totalElement);
+    totalElement.id = 'totalPrice'
+
+
+
+    
+    checkOut(storedProducts, totalPrice)
   }
+  
+
 };
 
 // Hämtar produkter från local storage
 const storedProducts = getProductsFromLocalStorage();
-console.log(storedProducts);
+
+
+
+
 
 // Renderar produkterna i DOMen
 renderProductsInDOM(storedProducts);
+
+

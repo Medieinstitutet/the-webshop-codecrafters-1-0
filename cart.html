@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
     <link rel="stylesheet" href="src/scss/checkout.scss" />
+    
+  
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -46,6 +48,8 @@
         </nav>
       </section>
       </header>
+  <article class="checkoutContainer"> 
+ 
       <header id="hej">
         <div id="itemlist">
           <ul id="data-list"></ul>
@@ -53,30 +57,30 @@
       </header>
       <div id="total-price"></div>
 
-      <main class="meh">
+      <main class="mainContainer">
         <div id="grid-container">
           <form id="Personal">
-            <label for="fullName">Full Name:</label>
+            <label for="firstname">Firstname:</label>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
+              id="firstname"
+              name="firstname"
               required
-              placeholder="Beppe"
+              placeholder="Namn"
             />
-
-            <label for="email">Email:</label>
+            <label for="lastname">Lastname:</label>
             <input
-              type="email"
-              id="email"
-              name="email"
+              type="text"
+              id="lastname"
+              name="lastname"
               required
-              placeholder="Beppe@live.se"
+              placeholder="Efternamn"
             />
 
+            
             <label for="phone">Phone:</label>
             <input
-              type="tel"
+              type="number"
               id="phone"
               name="phone"
               required
@@ -84,9 +88,9 @@
             />
             <label for="address">address:</label>
             <input
-              type="address"
-              id="phone"
-              name="phone"
+              type="text"
+              id="street"
+              name="street"
               required
               placeholder="Beppevägen 49b"
             />
@@ -94,15 +98,15 @@
             <label for="city">city:</label>
             <input
               type="text"
-              class="city"
+              id="county"
               name="city"
               required
               placeholder="Ekerö"
             />
             <label for="zipcode">zipcode:</label>
             <input
-              type="zipcode"
-              class="zipcode"
+              type="number"
+              id="postcode"
               name="zipcode"
               required
               placeholder="178 32"
@@ -126,7 +130,7 @@
 
             <input type="text" id="cvv" name="cvv" required placeholder="XXX" />
 
-            <button id="orderButton" type="button" onclick="submitOrder()">
+            <button id="orderButton" type="button" >
               Place Order
             </button>
           </form>
@@ -135,8 +139,11 @@
 
       <footer><div id="productContainer"></div></footer>
     </section>
+  </article>
     <script type="module" src="/src/ts/eventlisteners/addProduct.ts"></script>
     <script type="module" src="/src/ts/functions/getProducts.ts"></script>
     <script type="module" src="/src/ts/checkoutPage.ts"></script>
+    <script type="module" src="./src/ts/orderPage/orderPage.ts"></script>
+
   </body>
 </html>

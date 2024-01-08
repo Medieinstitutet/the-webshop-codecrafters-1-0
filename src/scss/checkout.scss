@@ -7,18 +7,35 @@ body {
   margin: 0;
   font-family: Verdana Tahoma, serif;
 }
-.background {
-  background-color: $septenary-color
-  ;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  
-  width: 100%;
-  height: 100%;
- 
-  padding: 0px;
+
+
+.checkoutContainer{
+
+
+
+
+    .background {
+        background-color: $septenary-color
+        ;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+        width: 100%;
+        height: 100%;
+       
+        padding: 0px;
+      }
+
+
+
+
+
+
+
+
 }
+
 #grid-container {
   
   width: 50%;
