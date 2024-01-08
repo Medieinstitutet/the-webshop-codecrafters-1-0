@@ -2,23 +2,16 @@ import "./../scss/style.scss";
 import { allProducts } from "./allProductsPage/allProducts";
 import { Order } from "./models/order";
 import { Product } from "./models/product";
-import { orderPage } from "./orderPage/orderPage";
- 
- 
- 
+import { openBasket } from "./functions/openBasket";
+import { closeBasket } from "./functions/basketPage/closeBasket";
+
 export const shoppingcart: Product[] = [];
 
+openBasket();
+closeBasket();
 
-const main = async() => {
+const main = async () => {
+  await allProducts();
+};
 
-
-
-    await allProducts()
-
-
-
-}
-
- main()
- 
- 
+main();
