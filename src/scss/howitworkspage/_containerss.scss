@@ -1,0 +1,55 @@
+@use "/src/scss/variables" as v;
+@use "/src/scss/mixins";
+
+body,
+html {
+  margin: 0px;
+  height: 100%;
+  font-size: 12pt;
+  scroll-behavior: smooth;
+}
+
+#howItWorksPage {
+  height: 100%;
+  width: 100%;
+  background-color: v.$secondary-backgroundcolor;
+}
+
+.container--introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.introduction--content {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.container--supriseElement {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+#howItWorksPage {
+  @include mixins.devices(tablet) {
+    .introduction--content {
+      position: absolute;
+      align-items: start;
+      left: 0px;
+    }
+  }
+}
+
+// #howItWorksPage {
+//   @include mixins.devices(desktop) {
+//     .introduction--content {
+//       display: inline;
+//       position: initial;
+//       align-items: start;
+//       left: 0px;
+//     }
+//   }
+// }
