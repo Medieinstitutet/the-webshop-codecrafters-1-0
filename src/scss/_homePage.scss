@@ -5,9 +5,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: fit-content;
+    
+    height: 100vh;
     margin: 0;
-    padding: 0px;
+    
    
   }
 
@@ -49,12 +50,17 @@
         }
       
     }
+    #bigNameDiv{
+      position: relative;
+      top: 200px;
+    }
   #bigName {
     display: flex;
     justify-content: left;
     text-align: center;
     font-size: 100px;
-    margin-top: 150px;
+   
+
     margin-left: 50px;
     color: $secondary-color;
   
@@ -81,22 +87,28 @@
   }
   
   #text1 {
+  position: relative;
+  top: 200px;
     font-size: 50px;
     font-family: Verdana Tahoma, serif;
+
   }
   #text2 {
+    position: relative;
+  top: 200px;
     font-size: 50px;
     font-family: Verdana Tahoma, serif;
   }
   #text3 {
+    position: relative;
+  top: 200px;
     font-size: 50px;
     font-family: Verdana Tahoma, serif;
   }
   
   .topnav {
-    /* ändra så naven följer med på hela sidan */
-    position: fixed;
-    top: 0;
+    
+    background-color: #fdf8f2;
     width: 100%;
     text-align: start;
     margin: 0px;
@@ -144,6 +156,8 @@
   }
   
   .btn-outline-warning {
+    position: relative;
+    top: 200px;
     --bs-btn-color: #591109;
     --bs-btn-border-color: #591109;
     --bs-btn-hover-color: #f9f4f4;
@@ -176,6 +190,17 @@
     }
   }
   @media screen and (max-width: 600px) {
+    .mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align content in the center vertically */
+  justify-content: center; /* Align content in the center horizontally */
+  align-self: flex-start;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Add any additional styles as needed */
+}
     .main {
       display: flex;
       height: fit-content;
@@ -190,7 +215,16 @@
       margin: 0;
       padding: 0px;
     }
-  
+    .topnav {
+      /* ändra så naven följer med på hela sidan */
+      position: sticky;
+      background-color: #fdf8f2;
+      width: 100%;
+      text-align: start;
+      margin: 0px;
+      padding: 0px;
+      font-family: Verdana Tahoma, serif;
+    }
     #bigName {
       display: flex;
       justify-content: center;
@@ -249,6 +283,7 @@
     }
     .p-menu1 {
       height: 100%;
+
     }
     /* Hamburger */
     .hamburger1 {
@@ -289,7 +324,7 @@
       transform: scale(0);
     }
     #toggle1:checked ~ .menu1 {
-      height: 125px;
+      height: 170px;
     }
     /* Menu */
     .menu1 {
@@ -310,8 +345,7 @@
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
       font-family: Verdana Tahoma, serif;
-      position: absolute; /* Add this line to fix the position */
-      top: 100%; /* Adjust as needed based on your layout */
+      
       left: 40%;
     }
     .menu1 a:first-child {
@@ -332,11 +366,11 @@
     }
     .topnav {
       width: 100%;
-     
+    
       text-align: end;
       margin: 0px;
       padding: 0px;
-  
+      
       font-family: Verdana Tahoma, serif;
     }
     .topnav a {
