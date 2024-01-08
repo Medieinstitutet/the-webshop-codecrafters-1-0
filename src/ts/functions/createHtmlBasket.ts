@@ -68,7 +68,7 @@ export const createHtmlBasket = (basket: Product[], id: Product) => {
       //Visa det individuella priset
       const indiviualPrice = document.createElement("span");
       indiviualPrice.className = "indiviualPrice";
-      indiviualPrice.innerHTML += currentProduct.price + " SEK";
+      indiviualPrice.innerHTML += currentProduct.price + " SEK each";
 
       const productQuantityText = document.createElement("span");
       productQuantityText.className = "productQuantityText";
