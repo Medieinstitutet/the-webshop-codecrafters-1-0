@@ -3,18 +3,19 @@ import { Product } from "../models/product";
 
 /* Hämtar knappen som eventlistenern ska kopplas till och id:t 
 pushas sedan till varukorgen */
-// export const addProduct = (button:HTMLElement,  id: Product) => {
+export const shoppingcart: Product[] = [];
 
-//     button.addEventListener('click', (event: MouseEvent) => {
-//      event.preventDefault()
-//      shoppingcart.push(id)
-//      console.log(shoppingcart)
-//     })
-// }
+export const addProduct = (button: HTMLElement, id: Product) => {
+  button.addEventListener("click", (event: MouseEvent) => {
+    event.preventDefault();
+    shoppingcart.push(id);
+    console.log(shoppingcart);
+  });
+};
 
 let basket: Product[] = [];
 
-export const addProduct = (button: HTMLElement, id: Product) => {
+export const addProductToBasket = (button: HTMLElement, id: Product) => {
   button.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
     basket.push(id);
@@ -22,14 +23,3 @@ export const addProduct = (button: HTMLElement, id: Product) => {
     console.log(basket);
   });
 };
-
-// export function saveToLocalstorage() {
-//   localStorage.setItem("basketarticles", JSON.stringify(basket));
-//   // console.log("Saving to localStorage:", lists);
-// }
-
-// export function getFromLocalstorage() {
-//   if (localStorage.getItem("basketarticles")) {
-//     basket = JSON.parse(localStorage.getItem("basketarticles"));
-//   }
-// }

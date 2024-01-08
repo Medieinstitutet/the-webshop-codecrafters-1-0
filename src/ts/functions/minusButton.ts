@@ -8,21 +8,13 @@ export const buttonMinus = (
   onePrductPrice: HTMLParagraphElement,
   totalPrice: HTMLSpanElement
 ) => {
-  const indexToRemove = basket.findIndex(
-    (product) => product._id === productId
-  );
+  const indexToRemove = basket.findIndex((product) => product._id === productId);
   if (indexToRemove !== -1) {
     const minusButton = document.createElement("button");
     minusButton.className = "minusButton";
     minusButton.innerHTML = "-";
     minusButton.addEventListener("click", () => {
-      updatePrice(
-        basket,
-        productId,
-        totalBasketPrice,
-        onePrductPrice,
-        totalPrice
-      );
+      updatePrice(basket, productId, totalBasketPrice, onePrductPrice, totalPrice);
     });
     return minusButton;
   }
