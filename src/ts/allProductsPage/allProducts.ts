@@ -3,8 +3,8 @@ import { oneProduct } from '../productPage/oneProduct';
 import { Product } from "../models/product";
 
 export const allProducts = async() => {
-    
-    const productArray = await getProducts()
+ 
+     const productArray = await getProducts()
     
     if(productArray){
         const productContainer = document.createElement('section')

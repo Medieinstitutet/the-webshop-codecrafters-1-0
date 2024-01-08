@@ -5,11 +5,21 @@ export const getProducts = async () => {
   const url: string = import.meta.env.VITE_URL;
   const Array: Product[] = [];
   try {
-    const { data } = await axios.get<Product[]>(`${url}`);
-    if (data.length > 0) {
+    const { data } = await axios.get<Product[]>(`${url}`, {
+      timeout: 500
+      }) 
+    if (data.length >= 3) {
       data.forEach((item) => {
         Array.push(item);
       });
+    }else{
+      if (productsfromjson) {
+        productsfromjson.forEach((item) => {
+          Array.push(item);
+        });
+      }
+
+
     }
   } catch {
     if (productsfromjson) {
