@@ -6,6 +6,7 @@
 body {
   margin: 0;
   font-family: Verdana Tahoma, serif;
+  
 }
 
 
@@ -46,6 +47,7 @@ body {
 
   
 }
+
 #homePage{
   display: flex;
   background-color: $secondary-color;
@@ -62,8 +64,6 @@ body {
   justify-content:center;
   width: 90%;
   margin-left:50px;
-  
-
 }
 
 input {
@@ -106,13 +106,13 @@ input {
   height: 48vh;
 }
 #Card {
-  width: 70%;
+  position: relative;
+  width: 75%;
   justify-content: center;
   align-items: center;
-margin-left: 15%;
-  
+  margin-left: 12%;
+  top: 100px;
 
-  
 }
 .address{
   width: 36%;
@@ -124,16 +124,14 @@ margin-left: 15%;
 }
 #expiryDate{
   margin-top: 20px;
-  width: 34%;
-  border-radius: 2px;
- 
-  padding: 2px;
-}
-#cvv{
   width: 30%;
   border-radius: 2px;
- 
-  padding: 2px;
+}
+#cvv{
+  width: 41%;
+  border-radius: 2px;
+ min-width: none;
+  
 }
 
   
@@ -399,6 +397,233 @@ input:focus {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #591109;
   }
+  body {
+    position: relative;
+    
+  }
+  
+  .background {
+    // background-color: transparent;;
+    // background-image: none;
+    background-image: url(public/andres-haro-dominguez-mre-6yUiuwU-unsplash.jpg);
+    
+  }
+  
+  .emoijisContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    top: 0%;
+    z-index: -1;
+  }
+  
+  .containerPage {
+   
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(public/andres-haro-dominguez-mre-6yUiuwU-unsplash.jpg);
+    
+  }
+  
+  .orderContainer {
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 95%;
+    max-width: 500px;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $septenary-color;
+    border-radius: 5px;
+    border: 3px solid $secondary-color;
+    margin: 50px 0;
+    --b: 5px;  /* the border thickness */
+    --d: 5px; /* the distance from the edge */
+    --o: 15px; /* the offset on hover */
+    --s: 1;    /* the direction of the hover effect (+1 or -1)*/
+    
+    --_d: calc(var(--d) + var(--s)*1em);
+    --_g: calc(100% - 2*(var(--_d) + var(--b)));
+    --_m:
+      conic-gradient(from 90deg at var(--_d) var(--_d),#0000 25%,#000 0)
+       0 0/calc(100% - var(--_d)) calc(100% - var(--_d)),
+      linear-gradient(#000 0 0) 50%/var(--_g) var(--_g) no-repeat;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    
+    
+    transition: .35s;
+  }
+  
+  .buyerInfo {
+    height: fit-content;
+    height: -moz-fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    &___name,
+    &___street,
+    &___postcodeCounty,
+    &___deliveryaddress,
+    &___text {
+      justify-self: center;
+      margin: 0 5px;
+      padding: 0px 15px;
+      font-size: clamp(11px, 1vw, 15px);
+      word-spacing: 4px;
+    }
+  
+    &___text {
+      margin: 0 0 20px 0;
+      font-size: clamp(13px, 1vw, 17px);
+    }
+  
+    &___deliveryaddress {
+      text-decoration: underline;
+      margin-bottom: 5px;
+      font-size: clamp(13px, 1vw, 17px);
+    }
+  }
+  
+  .orderDetailsContainer {
+    height: fit-content;
+    height: -moz-fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+  
+    &___orderDetailsText,
+    .orderDetailsTable {
+      justify-self: center;
+      margin: 0 5px;
+      padding: 0px 15px;
+      font-size: clamp(13px, 1vw, 17px);
+      word-spacing: 4px;
+      white-space: nowrap;
+    }
+  
+    &___orderDetailsText {
+      margin-bottom: 5px;
+      text-decoration: underline;
+    }
+  
+    .orderDetailsTable {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+  
+      tr {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+  
+      td,
+      th {
+        display: flex;
+        width: 30%;
+      }
+  
+      th {
+        text-decoration: underline;
+        font-weight: 400;
+        font-size: clamp(13px, 1vw, 17px);
+      }
+  
+      td {
+        font-size: clamp(11px, 1vw, 15px);
+  
+        &___titel {
+          justify-self: center;
+        }
+      }
+    }
+  }
+  
+  .totalPriceContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    margin: 35px 5px 0px 5px;
+    padding: 0px 15px;
+    word-spacing: 4px;
+  
+    &___totalPrice,
+    &___momsPrice {
+      padding: 0px 15px;
+      margin: 0;
+      font-size: clamp(13px, 1vw, 17px);
+      word-spacing: 4px;
+    }
+    &___momsPrice {
+      font-size: clamp(10px, 1vw, 12px);
+    }
+  }
+  
+  /* Styling för emoji-regn */
+  
+  @for $i from 0 through 32 {
+    @keyframes fall-#{$i} {
+      0% {
+        transform: translate3d((random(100) * 1vw), -85vh, (random(100) * 5px));
+        opacity: 1;
+      }
+  
+      75% {
+        opacity: 1;
+      }
+  
+      95% {
+        opacity: 0;
+      }
+  
+      100% {
+        transform: translate3d((random(100) * 1vw), (random(1) * 1vh + 100vh), (random(100) * 5px));
+        opacity: 0;
+      }
+    }
+  
+    .emoji:nth-child(#{$i}) {
+      position: absolute;
+      animation: fall-#{$i} 15s linear;
+      animation-delay: -$i * 0.2s;
+      font-size: clamp(25px, 2vw, 28px);
+      // Ta bort en av dessa z-index-deklarationer
+      // z-index: 100;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 1vh, 0);
+    }
+  
+    75% {
+      opacity: 1;
+    }
+  
+    95% {
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translate3d(0, 50vh, 0);
+      opacity: 0;
+    }
+  }
+  
   
   @media screen and (min-width: 600px) {
     .hamburger1 {
