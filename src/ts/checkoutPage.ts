@@ -7,6 +7,7 @@ import { checkOut } from "./eventlisteners/checkOut";
 export const getProductsFromLocalStorage = (): Product[] => {
   const products = localStorage.getItem("basketarticles");
   return products ? JSON.parse(products) : [];
+  
 };
 
 const groupProductsById = (products: Product[]): { [id: string]: Product } => {
@@ -36,6 +37,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
     // Grupperar produkter
     const groupedProducts = Object.values(groupProductsById(products));
+    groupedProducts.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
   
     groupedProducts.forEach((product) => {
       const productElement = document.createElement("ul");
@@ -100,8 +102,8 @@ export const renderProductsInDOM = (products: Product[]): void => {
       products.sort((A, B) => A.titel.localeCompare(B.titel));
 
       if (productToAdd) {
-        const updatedProducts = [...products, productToAdd];
-
+        let updatedProducts = [...products, productToAdd];
+        updatedProducts.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
         // updatedProducts.sort((a, b) => (a.titel > b.titel ? 1 : -1));
 
         localStorage.setItem("basketarticles", JSON.stringify(updatedProducts));

@@ -58,6 +58,7 @@ deletee.remove()
 
 
 orderPage(orders, totalPrice)
+localStorage.setItem("basketarticles", JSON.stringify([]));
 }
 
 

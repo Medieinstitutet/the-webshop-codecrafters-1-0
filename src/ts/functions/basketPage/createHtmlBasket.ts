@@ -23,7 +23,7 @@ export const createHtmlBasket = (basket: Product[]) => {
   const addedProducts: Set<string> = new Set();
 
   //Sortera varukorg (just nu efter titel)
-  basket.sort((a, b) => a.titel.localeCompare(b.titel));
+  basket.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
 
   //Loopa igenom varje produkt i varukorgen
   for (let i = 0; i < basket.length; i++) {
