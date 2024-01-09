@@ -76,6 +76,9 @@ font-size: 20px;
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
+  html{
+    height: fit-content;
+  }
   body {
     margin: 0;
     font-family: Verdana Tahoma, serif;
