@@ -12,8 +12,8 @@ openBasket();
 closeBasket();
 
 const main = async () => {
-/*   await allProducts() */
-addProductToBasket()
+  /*   await allProducts() */
+  // addProductToBasket()
 };
 
 main();
