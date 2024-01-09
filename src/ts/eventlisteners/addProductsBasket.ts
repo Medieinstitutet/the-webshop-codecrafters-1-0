@@ -1,7 +1,14 @@
 import { createHtmlBasket } from "../functions/basketPage/createHtmlBasket";
 import { Product } from "../models/product";
 
+const existingProductsString = localStorage.getItem("basketarticles");
+    const existingProducts = existingProductsString ? JSON.parse(existingProductsString) : [];
 let basket: Product[] = [];
+if(existingProductsString){
+  basket = [...existingProducts ]
+
+}
+
 
 // Funktion för att lägga till en produkt i varukorgen när en knapp klickas
 export const addProductToBasket = (button: HTMLElement, id: Product) => {

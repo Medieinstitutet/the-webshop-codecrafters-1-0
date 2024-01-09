@@ -33,6 +33,16 @@ const emoijis = () =>{
 
 
 export const orderPage = (orderArray: Order, getTotalPrice: number) => {
+
+const del = document.querySelector<HTMLElement>('.containerPage')
+
+if(del){
+
+
+del.remove()
+
+}
+
 const number: number = (Math.random() * (10523 - 100) + 10);;
     const orderNumber:string = `#${Math.floor(number)}`
 
