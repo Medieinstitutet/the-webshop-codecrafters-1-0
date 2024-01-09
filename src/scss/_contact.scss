@@ -1,5 +1,4 @@
 @use "allproducts";
-
 @use "productpage";
 @import "variables";
 
@@ -28,7 +27,7 @@ font-size: 20px;
   display: flex;
   position: relative;
   top: 200px;
-
+z-index: 0;
   width: 80%;
   height: 60vh;
   left: 10%;
