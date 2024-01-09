@@ -21,3 +21,5 @@ export const allProducts = async() => {
 })
     }
 }
+
+allProducts()

@@ -11,6 +11,7 @@ export const filterOutProduct = async (id:string) => {
     const deleteContainer = document.querySelector<HTMLInputElement>('.productContainerAllProducts')
     const deleteAsWell = document.querySelector<HTMLElement>('.productPageContainer')
     const home = document.querySelector<HTMLElement>('.mainContent')
+    const about = document.querySelector<HTMLElement>('#app')
  
         if(deleteContainer){
             deleteContainer.remove();
@@ -20,6 +21,11 @@ export const filterOutProduct = async (id:string) => {
         }
         if(home){
             home.remove();
+        }
+        if(about){
+
+            about.remove()
+
         }
   
         /* produkter och id finns sorteras produkter in eller ut och sparas i respektive variabel */

@@ -104,7 +104,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
       if (productToAdd) {
         let updatedProducts = [...products, productToAdd];
         updatedProducts.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
-        // updatedProducts.sort((a, b) => (a.titel > b.titel ? 1 : -1));
+       
 
         localStorage.setItem("basketarticles", JSON.stringify(updatedProducts));
 
