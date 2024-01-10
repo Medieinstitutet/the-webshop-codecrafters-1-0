@@ -18,7 +18,7 @@ oneProduct(oneProductArray, productPageContainer, text)
 const productContainer = document.createElement('section')
 productContainer.classList.add('productContainer')
 productPageContainer.appendChild(productContainer)
-
+window.scrollTo({top:0, behavior:"smooth"})
 restOfProducts(restOfProductsArray, productContainer)
 
 
