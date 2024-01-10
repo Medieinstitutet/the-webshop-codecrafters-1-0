@@ -98,7 +98,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
     };
     const addProduct = (productId: string, products: Product[]): Product[] => {
       const storedProducts = JSON.parse(localStorage.getItem("basketarticles") || "[]");
-      const productToAdd = storedProducts.find((product) => product._id === productId);
+      const productToAdd = storedProducts.find((product: Product) => product._id === productId);
       products.sort((A, B) => A.titel.localeCompare(B.titel));
 
       if (productToAdd) {
@@ -125,7 +125,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
    
     
-    checkOut(storedProducts, totalPrice)
+    checkOut(products, totalPrice)
   
   
   

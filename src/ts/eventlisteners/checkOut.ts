@@ -13,17 +13,31 @@ export const checkOut  = async(items: Product[], totalprice:number) => {
     button?.addEventListener('click', (event: MouseEvent) => {
         event.preventDefault()
         const form = document.querySelector<HTMLFormElement>('#grid-container');
-        if(form?.reportValidity() && items.length >= 1){
-console.log('first')
-  const firstname = document.querySelector('#firstname')?.value;
-  const lastname = document.querySelector('#lastname')?.value;
-  const phone = document.querySelector('#phone')?.value;
-  const street = document.querySelector('#street')?.value;
-  const county = document.querySelector("#county")?.value;
-  const postcode = document.querySelector("#postcode")?.value;
+
+        let products: Product[] = JSON.parse(localStorage.getItem("basketarticles") || "[]");
+
+       
+        if(form?.reportValidity() && products.length >= 1){
+
+  const firstname = document.querySelector<HTMLInputElement>('#firstname')?.value || '';
+  const lastname = document.querySelector<HTMLInputElement>('#lastname')?.value || '';
+  const phone = document.querySelector<HTMLInputElement>('#phone')?.value || 
+  const street = document.querySelector<HTMLInputElement>('#street')?.value || '';
+  const county = document.querySelector<HTMLInputElement>("#county")?.value || '';
+  const postcode = document.querySelector<HTMLInputElement>("#postcode")?.value || 
   const paymentmethod = 'Kort';
 
+
+
+
+
+
+
+
+
+
   const orders: Order = {
+    
       firstname,
       lastname,
       phone,
