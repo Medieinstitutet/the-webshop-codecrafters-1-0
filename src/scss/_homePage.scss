@@ -93,7 +93,7 @@ html {
 }
 
 .topnav {
-  /* ändra så naven följer med på hela sidan */
+  
   position: fixed;
   top: 0;
   width: 100%;
@@ -242,7 +242,7 @@ z-index: 12;
     text-decoration: none;
     bottom: 50px;
     left: 50%;
-
+    
     color: $secondary-color;
   }
 
@@ -294,7 +294,7 @@ z-index: 12;
   #toggle1:checked ~ .menu1 {
     height: 225px;
   }
-  /* Menu */
+  
   .menu1 {
     width: 100%;
 
@@ -313,8 +313,8 @@ z-index: 12;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     font-family: Verdana Tahoma, serif;
-    position: absolute; /* Add this line to fix the position */
-    top: 100%; /* Adjust as needed based on your layout */
+    position: absolute; 
+    top: 100%; 
     left: 0%;
   }
   .menu1 a:first-child {

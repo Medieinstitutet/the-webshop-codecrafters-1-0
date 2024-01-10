@@ -47,10 +47,10 @@ z-index: 0;
   background-color: $septenary-color;
   opacity: 0.8;
   gap: 40px;
-  --b: 5px;  /* the border thickness */
-  --d: 10px; /* the distance from the edge */
-  --o: 15px; /* the offset on hover */
-  --s: 1;    /* the direction of the hover effect (+1 or -1)*/
+  --b: 5px; 
+  --d: 10px; 
+  --o: 15px; 
+  --s: 1;    
  
   --_d: calc(var(--d) + var(--s)*1em);
   --_g: calc(100% - 2*(var(--_d) + var(--b)));
@@ -118,10 +118,10 @@ z-index: 0;
     background-color: $septenary-color;
     opacity: 0.8;
     gap: 40px;
-    --b: 5px;  /* the border thickness */
-    --d: 2px; /* the distance from the edge */
-    --o: 15px; /* the offset on hover */
-    --s: 1;    /* the direction of the hover effect (+1 or -1)*/
+    --b: 5px;  
+    --d: 2px; 
+    --o: 15px; 
+    --s: 1;    
    
     --_d: calc(var(--d) + var(--s)*1em);
     --_g: calc(100% - 2*(var(--_d) + var(--b)));
