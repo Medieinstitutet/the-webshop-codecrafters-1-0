@@ -679,6 +679,7 @@ input:focus {
   }
   
   
+  
   @media screen and (min-width: 600px) {
     .hamburger1 {
       display: none;
@@ -688,15 +689,11 @@ input:focus {
     }
     .menu1 {
       display: flex;
-      width: 70%;
-      margin-left: 10%;
-      text-align: start;
-      background-color: #dddddd;
-      font-family: Verdana Tahoma, serif;
+      height: 45px;
+      gap: 40px;
       justify-content: center;
-     align-items: center;
-     gap: 50px;
-     border-radius: 10px;
+      align-items: center;
+      margin-right: 37px;
       
     }
     
