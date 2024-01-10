@@ -117,15 +117,19 @@ export const renderProductsInDOM = (products: Product[]): void => {
     const totalPrice = groupedProducts.reduce((sum, product) => sum + product.price * product.amount, 0);
 
     const totalElement = document.createElement("div");
+    const totalt = document.createElement("input");
 
     totalElement.innerHTML = `<strong id="itemTotal">Totalt pris: ${totalPrice}</strong> `;
     itemListContainer.appendChild(totalElement);
     totalElement.id = "totalPrice";
 
+    totalt.id = 'total';
+    totalt.value = `${totalPrice}`;
 
+    itemListContainer.appendChild(totalt);
    
     
-    checkOut(products, totalPrice)
+    checkOut()
   
   
   

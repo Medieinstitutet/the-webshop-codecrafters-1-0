@@ -4,12 +4,12 @@ import { Product } from "./product";
 export interface Order{
   firstname: string,
   lastname:string,
-  phone:number,
+  phone:string,
 street: string,
-postcode:number,
+postcode:string,
 county: string,
 paymentmethod: string,
-totalprice:number,
+totalprice:string,
 items:Product[]
 
     }

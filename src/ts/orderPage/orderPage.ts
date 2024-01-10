@@ -33,6 +33,7 @@ const emoijis = () =>{
 
 
 export const orderPage = (orderArray: Order, getTotalPrice: number) => {
+    console.log(orderArray, getTotalPrice)
 
 const del = document.querySelector<HTMLElement>('.containerPage')
 
