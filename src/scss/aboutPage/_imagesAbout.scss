@@ -18,7 +18,7 @@
   max-width: 100%;
 }
 
-#howItWorksPage {
+#aboutPage {
   @include mixins.devices(tablet) {
     .introductionImage {
       width: 50%;
@@ -37,7 +37,7 @@
   }
 }
 
-#howItWorksPage {
+#aboutPage {
   @include mixins.devices(desktop) {
     .introductionImage {
       width: 460px;

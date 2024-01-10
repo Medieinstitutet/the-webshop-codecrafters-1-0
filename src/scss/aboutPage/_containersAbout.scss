@@ -1,18 +1,10 @@
 @use "/src/scss/variables" as v;
 @use "/src/scss/mixins";
 
-body,
-html {
-  margin: 0px;
-  height: 100%;
-  font-size: 12pt;
-  scroll-behavior: smooth;
-}
-
-#howItWorksPage {
+#aboutPage {
   height: 100%;
   width: 100%;
-  background-color: v.$secondary-backgroundcolor;
+  background-color: white;
   padding-top: 5vh;
 }
 
@@ -34,7 +26,7 @@ html {
   align-items: end;
 }
 
-#howItWorksPage {
+#aboutPage {
   @include mixins.devices(tablet) {
     .introduction--content {
       position: absolute;
