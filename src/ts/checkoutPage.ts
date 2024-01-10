@@ -98,7 +98,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
     };
     const addProduct = (productId: string, products: Product[]): Product[] => {
       const storedProducts = JSON.parse(localStorage.getItem("basketarticles") || "[]");
-      const productToAdd = storedProducts.find((product) => product._id === productId);
+      const productToAdd = storedProducts.find((product: Product) => product._id === productId);
       products.sort((A, B) => A.titel.localeCompare(B.titel));
 
       if (productToAdd) {
@@ -117,15 +117,19 @@ export const renderProductsInDOM = (products: Product[]): void => {
     const totalPrice = groupedProducts.reduce((sum, product) => sum + product.price * product.amount, 0);
 
     const totalElement = document.createElement("div");
+    const totalt = document.createElement("input");
 
     totalElement.innerHTML = `<strong id="itemTotal">Totalt pris: ${totalPrice}</strong> `;
     itemListContainer.appendChild(totalElement);
     totalElement.id = "totalPrice";
 
+    totalt.id = 'total';
+    totalt.value = `${totalPrice}`;
 
+    itemListContainer.appendChild(totalt);
    
     
-    checkOut(storedProducts, totalPrice)
+    checkOut()
   
   
   
