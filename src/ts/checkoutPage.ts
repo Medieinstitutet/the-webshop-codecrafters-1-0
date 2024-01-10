@@ -47,8 +47,9 @@ export const renderProductsInDOM = (products: Product[]): void => {
         <img id="itemPicture" src="${product.image}" alt="Produktbild"/>
         <strong id="itemPrice" >${product.price}:</strong>
         <span id="itemAmount">${product.amount}</span>
-        <button  id="itemButton"   class="AddProductButton" data-product-id="${product._id}">+ </button>
         <button  id="itemButton" class="removeProductButton" data-product-id="${product._id}">-</button>
+        <button  id="itemButton"   class="AddProductButton" data-product-id="${product._id}">+ </button>
+        
       `;
 
       productElement.id = "listItems";
