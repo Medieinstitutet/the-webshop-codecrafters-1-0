@@ -125,9 +125,14 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
 
 
+   
     
     checkOut(storedProducts, totalPrice)
+  
+  
+  
   }
+
   
 
 };
