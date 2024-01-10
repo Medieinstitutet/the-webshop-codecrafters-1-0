@@ -34,6 +34,33 @@
 
 .container--basketOneProduct {
   width: 100%;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
+  background-color: white;
+  // padding-top: 25px;
+  // gap: 10px;
+}
+
+.container--flavour {
+  width: 100%;
+  height: 105px;
+  background-color: rgb(146, 122, 122);
+}
+
+.container--flavourCheckboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  justify-content: space-between;
+  gap: 3px;
+}
+
+.container--imageAndText {
+  width: 100%;
   height: 105px;
   display: flex;
   justify-content: space-between;

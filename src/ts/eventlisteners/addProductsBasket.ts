@@ -2,20 +2,20 @@ import { createHtmlBasket } from "../functions/basketPage/createHtmlBasket";
 import { Product } from "../models/product";
 
 const existingProductsString = localStorage.getItem("basketarticles");
-    const existingProducts = existingProductsString ? JSON.parse(existingProductsString) : [];
-let basket: Product[] = [];
-if(existingProductsString){
-  basket = [...existingProducts ]
-
+const existingProducts = existingProductsString ? JSON.parse(existingProductsString) : [];
+export let basket: Product[] = [];
+if (existingProductsString) {
+  basket = [...existingProducts];
 }
-
 
 // Funktion för att lägga till en produkt i varukorgen när en knapp klickas
 export const addProductToBasket = (button: HTMLElement, id: Product) => {
   button.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
+
     // Lägg till den valda produkten i varukorgen.
     basket.push(id);
+
     // Uppdatera det visuella gränssnittet för varukorgen.
     createHtmlBasket(basket);
   });

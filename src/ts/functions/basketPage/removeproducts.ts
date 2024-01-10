@@ -24,7 +24,6 @@ export const removeProduct = (
     if (productToRemove !== -1) {
       // Ta bort produkten från kundvagnen
       basket.splice(i, 1);
-
       // Minska antalet av den specifika produkten i kundvagnen
       let decreaseQuantityy = parseInt(productQuantityNumber.innerHTML);
       decreaseQuantityy = Math.max(0, decreaseQuantityy - 1);

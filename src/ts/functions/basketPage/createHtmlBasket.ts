@@ -7,9 +7,11 @@ import { buttonPlus } from "./plusButton";
 import { basketPrice, priceProduct } from "./prices";
 import { xmark } from "./createXmark";
 import { addProductToBasket, saveToLocalstorage } from "../../eventlisteners/addProductsBasket";
+import { addFlavourInBasket, createFlavourInput, uppdateBasketWithFlavours } from "../flavourPage/flavours";
 
 //Funktion för att skapa html för varukorg
 export const createHtmlBasket = (basket: Product[]) => {
+  uppdateBasketWithFlavours(basket);
   console.log(basket);
   saveToLocalstorage(basket);
   //hämta element där varukorgsartiklar hamnar
@@ -41,6 +43,9 @@ export const createHtmlBasket = (basket: Product[]) => {
       const basketOneProduct = document.createElement("section");
       basketOneProduct.className = "container--basketOneProduct";
 
+      const imageAndText = document.createElement("section");
+      imageAndText.className = "container--imageAndText";
+
       const basketImage = document.createElement("section");
       basketImage.className = "container--basketImage";
 
@@ -48,6 +53,17 @@ export const createHtmlBasket = (basket: Product[]) => {
       const img = document.createElement("img");
       img.src = `${currentProduct.image}`;
       img.className = "img";
+
+      const flavourContainer = document.createElement("section");
+      flavourContainer.className = "container--flavour";
+
+      const flavourTitle = document.createElement("p");
+      flavourTitle.innerHTML = "Flavour options";
+
+      const flavourCheckboxes = createFlavourInput(productId);
+      flavourCheckboxes.className = "container--flavourCheckboxes";
+
+      addFlavourInBasket(flavourCheckboxes, productId, basket);
 
       const oneProductText = document.createElement("section");
       oneProductText.className = "container--openProductText";
@@ -152,8 +168,12 @@ export const createHtmlBasket = (basket: Product[]) => {
       oneProductText.appendChild(productQuantityAndIndividualPrice);
       oneProductText.appendChild(buttonsAndPrice);
       basketImage.appendChild(img);
-      basketOneProduct.appendChild(basketImage);
-      basketOneProduct.appendChild(oneProductText);
+      imageAndText.appendChild(basketImage);
+      imageAndText.appendChild(oneProductText);
+      basketOneProduct.appendChild(imageAndText);
+      flavourContainer.appendChild(flavourTitle);
+      flavourContainer.appendChild(flavourCheckboxes);
+      basketOneProduct.appendChild(flavourContainer);
       basketArticles.appendChild(basketOneProduct);
 
       //Lägg till en produkts id i Set:en för att undvika duplikation
