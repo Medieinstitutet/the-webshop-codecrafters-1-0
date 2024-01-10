@@ -7,6 +7,7 @@ export const seeProduct = (button:HTMLElement, id:string) => {
     button.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault()
       filterOutProduct(id)
+      window.scrollTo({top:0, behavior:"smooth"})
     })
 
 
