@@ -91,7 +91,7 @@
 #aboutPage {
   @include mixins.devices(desktop) {
     .pageTitle {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       margin-top: 30px;
     }
 
@@ -103,7 +103,7 @@
     }
 
     #introductionText {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       width: 45%;
       text-align: left;
       line-height: 1.8rem;
@@ -111,7 +111,7 @@
 
     .smallText__thin,
     .smallText__bold {
-      font-size: 1rem;
+      font-size: 1.3rem;
       line-height: 1.6rem;
     }
 
