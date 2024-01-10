@@ -3,24 +3,28 @@
 
 .pageTitle {
   margin: 50px 15px 20px 15px;
-  font-family: "Arial";
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: v.$secondary-color;
   letter-spacing: 0.07rem;
   line-height: 1.1rem;
 }
 
-#introductionTitle,
+#introductionTitle {
+  font-size: 1.1rem;
+  text-align: right;
+  width: 85%;
+}
+
 #introductionText {
   text-align: right;
-  width: 80%;
+  width: 85%;
+  font-size: 0.9rem;
 }
 
 .smallText__thin {
   margin: 0px 15px 0px 15px;
-  font-family: "Arial";
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: v.$secondary-color;
   line-height: 1.1rem;
@@ -28,8 +32,7 @@
 
 .smallText__bold {
   margin: 20px 15px 0px 15px;
-  font-family: "Arial";
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: v.$secondary-color;
   line-height: 1.1rem;
@@ -46,7 +49,7 @@
   padding-bottom: 45px;
 }
 
-#howItWorksPage {
+#aboutPage {
   @include mixins.devices(tablet) {
     .pageTitle {
       font-size: 1rem;
@@ -85,7 +88,7 @@
   }
 }
 
-#howItWorksPage {
+#aboutPage {
   @include mixins.devices(desktop) {
     .pageTitle {
       font-size: 1.2rem;

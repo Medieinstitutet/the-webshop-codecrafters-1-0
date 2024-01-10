@@ -1,12 +1,12 @@
-@use "/src/scss/howitworkspage/containerss";
-@use "/src/scss/howitworkspage/textss";
-@use "/src/scss/howitworkspage/images";
+@use "/src/scss/aboutPage/containersAbout";
+@use "/src/scss/aboutPage/textsAbout";
+@use "/src/scss/aboutPage/imagesAbout";
 @use "allproducts";
 @use "homePage";
 @use "productpage";
-@use "/src/scss/basketPage/containers";
-@use "/src/scss/basketPage/texts";
-@use "/src/scss/basketPage/buttons";
+@use "/src/scss/basketPage/containersBasket";
+@use "/src/scss/basketPage/textsBasket";
+@use "/src/scss/basketPage/buttonsBasket";
 @use "orderpage";
 @use "_contact";
 
