@@ -268,34 +268,34 @@ width: 100px;
 label {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-  color: #333; // Set your desired text color
+  color: #333; 
   margin-bottom: 8px;
-  display: block; // Ensure the label is on a new line
+  display: block;
 }
 
 input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 3px solid #ccc; // Set your desired border color
+  border: 3px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; // Include padding and border in the total width/height
+  box-sizing: border-box;
 }
 
-// Optional: Style the input when it's in focus
+
 input:focus {
-  outline: none; // Remove the default focus outline
-  border-color: $secondary-color; // Set your desired focus border color
+  outline: none;
+  border-color: $secondary-color;
   
 }
 .city {
   width: 35%;
   padding: 10px;
   font-size: 14px;
-  border: 3px solid #ccc; // Set your desired border color
+  border: 3px solid #ccc; 
   border-radius: 5px;
   box-sizing: border-box;
-  // Additional styling for the city input, if needed
+  
 }
 
 .zipcode {
@@ -303,16 +303,16 @@ input:focus {
   width: 44%;
   padding: 10px;
   font-size: 14px;
-  border: 3px solid #ccc; // Set your desired border color
+  border: 3px solid #ccc; 
   border-radius: 5px;
   box-sizing: border-box;
-  // Additional styling for the zipcode input, if needed
+  
 }
 
-// Additional styling for the placeholder text
+
 ::placeholder {
   color: #999;
-  opacity: 1; // Set your desired placeholder text color
+  opacity: 1; 
 }
 .cart-icon {
       position: relative;
@@ -652,8 +652,7 @@ input:focus {
       animation: fall-#{$i} 15s linear;
       animation-delay: -$i * 0.2s;
       font-size: clamp(25px, 2vw, 28px);
-      // Ta bort en av dessa z-index-deklarationer
-      // z-index: 100;
+      
       opacity: 0;
     }
   }
@@ -679,6 +678,7 @@ input:focus {
   }
   
   
+  
   @media screen and (min-width: 600px) {
     .hamburger1 {
       display: none;
@@ -688,15 +688,11 @@ input:focus {
     }
     .menu1 {
       display: flex;
-      width: 70%;
-      margin-left: 10%;
-      text-align: start;
-      background-color: #dddddd;
-      font-family: Verdana Tahoma, serif;
+      height: 45px;
+      gap: 40px;
       justify-content: center;
-     align-items: center;
-     gap: 50px;
-     border-radius: 10px;
+      align-items: center;
+      margin-right: 37px;
       
     }
     
@@ -900,24 +896,24 @@ input:focus {
     label {
       font-family: 'Arial', sans-serif;
       font-size: 16px;
-      color: #333; // Set your desired text color
+      color: #333; 
       margin-bottom: 8px;
-      display: block; // Ensure the label is on a new line
+      display: block; 
     }
     
     input {
       width: 95%;
       padding: 10px;
       font-size: 14px;
-      border: 3px solid #ccc; // Set your desired border color
+      border: 3px solid #ccc; 
       border-radius: 5px;
-      box-sizing: border-box; // Include padding and border in the total width/height
+      box-sizing: border-box; 
     }
     
-    // Optional: Style the input when it's in focus
+    
     input:focus {
-      outline: none; // Remove the default focus outline
-      border-color: $secondary-color; // Set your desired focus border color
+      outline: none;
+      border-color: $secondary-color; 
       
     }
     #expiryDate{
@@ -937,10 +933,10 @@ input:focus {
       width: 35%;
       padding: 10px;
       font-size: 14px;
-      border: 3px solid #ccc; // Set your desired border color
+      border: 3px solid #ccc; 
       border-radius: 5px;
       box-sizing: border-box;
-      // Additional styling for the city input, if needed
+      
     }
     
     .zipcode {
@@ -948,16 +944,16 @@ input:focus {
       width: 32%;
       padding: 10px;
       font-size: 14px;
-      border: 3px solid #ccc; // Set your desired border color
+      border: 3px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
-      // Additional styling for the zipcode input, if needed
+     
     }
     
-    // Additional styling for the placeholder text
+   
     ::placeholder {
       color: #999;
-      opacity: 1; // Set your desired placeholder text color
+      opacity: 1;
     }
   
     #bigName {

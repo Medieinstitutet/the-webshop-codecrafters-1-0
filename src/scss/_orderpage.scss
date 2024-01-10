@@ -5,9 +5,7 @@ body {
 }
 
 .background {
-  // background-color: transparent;;
-
-  // background-image: none;
+ 
   
   overflow-x: hidden;
 
@@ -186,8 +184,7 @@ body {
     animation: fall-#{$i} 15s linear;
     animation-delay: -$i * 0.2s;
     font-size: clamp(25px, 2vw, 28px);
-    // Ta bort en av dessa z-index-deklarationer
-    // z-index: 100;
+    
     opacity: 0;
   }
 }

@@ -7,7 +7,6 @@ import { checkOut } from "./eventlisteners/checkOut";
 export const getProductsFromLocalStorage = (): Product[] => {
   const products = localStorage.getItem("basketarticles");
   return products ? JSON.parse(products) : [];
-  
 };
 
 const groupProductsById = (products: Product[]): { [id: string]: Product } => {
@@ -38,7 +37,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
     // Grupperar produkter
     const groupedProducts = Object.values(groupProductsById(products));
     groupedProducts.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
-  
+
     groupedProducts.forEach((product) => {
       const productElement = document.createElement("ul");
 
@@ -58,7 +57,7 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
       const removeProductButton = productElement.querySelector(".removeProductButton");
       if (removeProductButton) {
-        // Lägger till en händelselyssnare för att ta bort produkten när knappen klickas.
+        // Lägger till en klickhändelse för att ta bort produkten när knappen klickas.
         removeProductButton.addEventListener("click", () => {
           const productIdToRemove = removeProductButton.getAttribute("data-product-id");
           if (productIdToRemove) {
@@ -104,7 +103,6 @@ export const renderProductsInDOM = (products: Product[]): void => {
       if (productToAdd) {
         let updatedProducts = [...products, productToAdd];
         updatedProducts.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
-       
 
         localStorage.setItem("basketarticles", JSON.stringify(updatedProducts));
 
@@ -118,11 +116,10 @@ export const renderProductsInDOM = (products: Product[]): void => {
     const totalPrice = groupedProducts.reduce((sum, product) => sum + product.price * product.amount, 0);
 
     const totalElement = document.createElement("div");
- 
+
     totalElement.innerHTML = `<strong id="itemTotal">Totalt pris: ${totalPrice}</strong> `;
     itemListContainer.appendChild(totalElement);
-    totalElement.id = 'totalPrice'
-
+    totalElement.id = "totalPrice";
 
 
    
@@ -140,11 +137,5 @@ export const renderProductsInDOM = (products: Product[]): void => {
 // Hämtar produkter från local storage
 const storedProducts = getProductsFromLocalStorage();
 
-
-
-
-
 // Renderar produkterna i DOMen
 renderProductsInDOM(storedProducts);
-
-
