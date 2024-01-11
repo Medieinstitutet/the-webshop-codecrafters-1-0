@@ -4,13 +4,11 @@
 @use "allproducts";
 @use "homePage";
 @use "productpage";
-@use 'checkout';
 @use "/src/scss/basketPage/containersBasket";
 @use "/src/scss/basketPage/textsBasket";
 @use "/src/scss/basketPage/buttonsBasket";
 @use "orderpage";
-@use "contact";
-
+@use "_contact";
 
 .body {
   margin: 0;

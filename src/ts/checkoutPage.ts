@@ -40,7 +40,6 @@ export const renderProductsInDOM = (products: Product[]): void => {
 
     groupedProducts.forEach((product) => {
       const productElement = document.createElement("ul");
-      
 
       productElement.innerHTML = `
       
