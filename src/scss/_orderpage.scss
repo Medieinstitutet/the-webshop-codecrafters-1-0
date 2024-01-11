@@ -183,7 +183,7 @@ body {
     position: absolute;
     animation: fall-#{$i} 15s linear;
     animation-delay: -$i * 0.2s;
-    font-size: clamp(25px, 2vw, 28px);
+    font-size: clamp(25px, 5vw, 60px);
     
     opacity: 0;
   }
