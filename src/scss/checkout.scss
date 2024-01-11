@@ -500,10 +500,10 @@ input:focus {
     border-radius: 5px;
     border: 3px solid $secondary-color;
     margin: 50px 0;
-    --b: 5px;  /* the border thickness */
-    --d: 5px; /* the distance from the edge */
-    --o: 15px; /* the offset on hover */
-    --s: 1;    /* the direction of the hover effect (+1 or -1)*/
+    --b: 5px;  
+    --d: 5px; 
+    --o: 15px;
+    --s: 1;    
     
     --_d: calc(var(--d) + var(--s)*1em);
     --_g: calc(100% - 2*(var(--_d) + var(--b)));
