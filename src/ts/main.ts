@@ -4,7 +4,7 @@ import { Order } from "./models/order";
 import { Product } from "./models/product";
 import { openBasket } from "./functions/openBasket";
 import { closeBasket } from "./functions/basketPage/closeBasket";
-import { addProductToBasket } from "./eventlisteners/addProductsBasket";
+import { addProductToBasket, basket } from "./eventlisteners/addProductsBasket";
 
 export const shoppingcart: Product[] = [];
 

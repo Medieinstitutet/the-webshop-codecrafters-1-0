@@ -7,11 +7,11 @@ import { buttonPlus } from "./plusButton";
 import { basketPrice, priceProduct } from "./prices";
 import { xmark } from "./createXmark";
 import { addProductToBasket, saveToLocalstorage } from "../../eventlisteners/addProductsBasket";
-import { addFlavourInBasket, createFlavourInput, uppdateBasketWithFlavours } from "../flavourPage/flavours";
+import { createFlavourInput, flavourList2, remove } from "../flavourPage/flavours";
 
 //Funktion för att skapa html för varukorg
 export const createHtmlBasket = (basket: Product[]) => {
-  uppdateBasketWithFlavours(basket);
+  // uppdateBasketWithFlavours(basket);
   console.log(basket);
   saveToLocalstorage(basket);
   //hämta element där varukorgsartiklar hamnar
@@ -24,7 +24,7 @@ export const createHtmlBasket = (basket: Product[]) => {
   //Skapa en uppsättning för att hålla reda på unika produkt-ID
   const addedProducts: Set<string> = new Set();
 
-  //Sortera varukorg (just nu efter titel)
+  //Sortera varukorg
   basket.sort((a: Product, b: Product) => a.titel.length - b.titel.length);
 
   //Loopa igenom varje produkt i varukorgen
@@ -43,6 +43,8 @@ export const createHtmlBasket = (basket: Product[]) => {
       const basketOneProduct = document.createElement("section");
       basketOneProduct.className = "container--basketOneProduct";
 
+      remove(basket, productId);
+
       const imageAndText = document.createElement("section");
       imageAndText.className = "container--imageAndText";
 
@@ -60,10 +62,17 @@ export const createHtmlBasket = (basket: Product[]) => {
       const flavourTitle = document.createElement("p");
       flavourTitle.innerHTML = "Flavour options";
 
-      const flavourCheckboxes = createFlavourInput(productId);
+      const flavourCheckboxes = createFlavourInput(productId, flavourList2[productId] || {});
       flavourCheckboxes.className = "container--flavourCheckboxes";
 
-      addFlavourInBasket(flavourCheckboxes, productId, basket);
+      if (currentProduct.flavour && currentProduct.flavour.length > 0) {
+        currentProduct.flavour.forEach((flavour) => {
+          const checkbox = flavourCheckboxes.querySelector(`[data-flavour="${flavour}"]`) as HTMLInputElement;
+          if (checkbox) {
+            checkbox.checked = true;
+          }
+        });
+      }
 
       const oneProductText = document.createElement("section");
       oneProductText.className = "container--openProductText";

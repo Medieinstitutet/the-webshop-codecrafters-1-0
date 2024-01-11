@@ -12,10 +12,8 @@ if (existingProductsString) {
 export const addProductToBasket = (button: HTMLElement, id: Product) => {
   button.addEventListener("click", (event: MouseEvent) => {
     event.preventDefault();
-
     // Lägg till den valda produkten i varukorgen.
     basket.push(id);
-
     // Uppdatera det visuella gränssnittet för varukorgen.
     createHtmlBasket(basket);
   });

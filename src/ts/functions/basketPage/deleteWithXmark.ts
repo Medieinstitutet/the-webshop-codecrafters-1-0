@@ -1,4 +1,5 @@
 import { Product } from "../../models/product";
+import { remove, remover, uppdateBasketWithFlavours } from "../flavourPage/flavours";
 
 // Funktion för att ta bort en produkt från kundvagnen baserat på dess produkt-ID, alla produkter av ett och samma id tas bort
 export const deleteWithXmark = (basket: Product[], productId: string) => {
@@ -10,6 +11,7 @@ export const deleteWithXmark = (basket: Product[], productId: string) => {
     if (basket[i]._id === productId) {
       // Om matchning hittas, ta bort produkten från kundvagnen
       basket.splice(i, 1);
+      remover(productId);
     }
   }
 };
