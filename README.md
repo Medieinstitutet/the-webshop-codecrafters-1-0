@@ -18,9 +18,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 Välkommen till vår webbshop för whiskeyprenumerationer på https://whiskends.netlify.app. 
 Sidan är skapad med JavaScript (TypeScript), Sass, MongoDB och Node.js, 
 med särskilt fokus på användarvänlighet och funktionalitet.
+
+
+
+
+
+
+
+
 
 
 
